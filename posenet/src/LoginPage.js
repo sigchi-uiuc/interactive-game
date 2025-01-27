@@ -5,7 +5,7 @@ function LandingPage() {
   const navigate = useNavigate();
   return (
     <div>
-      <button onClick={() => navigate("/practice")}> Go to Practice </button>
+      <button class="btn" onClick={() => navigate("/practice")}> Go to Practice </button>
     </div>
   );
 }
