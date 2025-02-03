@@ -8,7 +8,7 @@ Making a motion sensing slicing games
 4. Click on Clone Git Repository
 5. Paste the link into the text box and press enter
 
-## How to run
+## How to Run
 1. In the terminal, make sure you are in interactive game
 2. Then type `cd posenet` to move into the posenet folder
 3. Type `npm install` into the terminal command line to make sure you have npm installed :p
