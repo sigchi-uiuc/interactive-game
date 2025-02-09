@@ -2,6 +2,8 @@ import pygame
 import random
 import time
 
+############ GAME WE MADE ORIGINALLY TO TEST OUT LOGIC NOT ACTUAL GAME CODE ###############
+
 pygame.init()
 
 # Constants
