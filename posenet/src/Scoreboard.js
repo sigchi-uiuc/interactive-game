@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-function Scoreboard() {
+function Scoreboard(player, setPlayer, playerList, setPlayerList) {
   const navigate = useNavigate();
   return (
     <div>
