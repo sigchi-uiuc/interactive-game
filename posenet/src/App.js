@@ -9,7 +9,7 @@ import "./App.css";
 
 
 // function encopasses a singular page and all the logic required in it
-function App() {
+function App(player, setPlayer) {
   /* 
   This portion outside the return function is all the logic. calling functions, apis and other things are done over here. Let's assume that our page code is a spy team.
   The code outside of the return function is like the cool tech guy who speaks into the spy's earpiece and tells it what to do.
