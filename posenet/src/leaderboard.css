@@ -1,0 +1,52 @@
+@font-face {
+    font-family: 'SairaStencilOne';
+    src: url('./fonts/SairaStencilOne.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.leaderboard-page {
+    background-color: #ECFCE5;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.leaderboard-container {
+    background-color: #ECFCE5;
+    border: solid 5px #D5EBCB;
+    border-radius: 60px;
+    width: 80vw;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: "Stencil Std", sans-serif;
+}
+
+.login-button {
+    background-color: #D5EBCB;
+    border: solid 3px #198155;
+    border-radius: 10px;
+    padding: 5px 15px;
+    color: #198155;
+    font-family: 'SairaStencilOne', sans-serif;
+    -webkit-text-stroke: 0.25px #BE8989;
+}
+
+.leaderboard-title{
+    background-color: #DBD9D9;
+    border: solid 5px #A48383;
+    border-radius: 60px;
+    padding: 10px 40px;
+
+    font-size: 85px;
+    color: #198155;
+    font-family: 'SairaStencilOne', sans-serif;
+    -webkit-text-stroke: 1.5px #BE8989;
+}

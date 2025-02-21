@@ -1,8 +1,9 @@
-```javascript
+// javascript
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import './leaderboard.css';
 
-function Leaderboard() {
+function Leaderboard(player, setPlayer, playerList, setPlayerList) {
   const navigate = useNavigate();
   const [scores, setScores] = useState([]);
   const [playerName, setPlayerName] = useState("");
@@ -36,53 +37,47 @@ function Leaderboard() {
   };
 
   return (
-    <div style={{
-      backgroundColor: "#ECFCE5",
-      width: "100vw",
-      height: "100vh",
-      display: "flex",
-      flexDirection: 'column',
-      alignItems: 'center',
-      justifyContent: 'center',
-      color: 'white',
-      fontFamily: "sans-serif",
-    }}>
-      <h1>🏆 Top Scores</h1>
-      <table style={{ borderCollapse: 'collapse', width: '50%', backgroundColor: '#2e4d2e', border: '2px solid white' }}>
-        <thead>
-          <tr>
-            <th style={{ padding: '10px', border: '1px solid white' }}>Rank</th>
-            <th style={{ padding: '10px', border: '1px solid white' }}>Name</th>
-            <th style={{ padding: '10px', border: '1px solid white' }}>Score</th>
-          </tr>
-        </thead>
-        <tbody>
-          {scores.map((entry, index) => (
-            <tr key={index}>
-              <td style={{ padding: '10px', border: '1px solid white' }}>{index + 1}</td>
-              <td style={{ padding: '10px', border: '1px solid white' }}>{entry.name}</td>
-              <td style={{ padding: '10px', border: '1px solid white' }}>{entry.score}</td>
+    <div className="leaderboard-page">
+      <div className="leaderboard-title">🏆 Top Scores</div>
+      <div className="leaderboard-container">
+
+      
+        <table style={{ borderCollapse: 'collapse', width: '50%', backgroundColor: '#198155', border: '2px solid white' }}>
+          <thead>
+            <tr>
+              <th style={{ padding: '10px', border: '1px solid white' }}>Rank</th>
+              <th style={{ padding: '10px', border: '1px solid white' }}>Name</th>
+              <th style={{ padding: '10px', border: '1px solid white' }}>Score</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
-      {showInput && (
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            value={playerName}
-            onChange={(event) => setPlayerName(event.target.value)}
-            placeholder="Enter your name"
-          />
-          <button type="submit">Submit</button>
-        </form>
-      )}
-      <button onClick={() => navigate("/")}>
-        Go to Login
+          </thead>
+          <tbody>
+            {scores.map((entry, index) => (
+              <tr key={index}>
+                <td style={{ padding: '10px', border: '1px solid white' }}>{index + 1}</td>
+                <td style={{ padding: '10px', border: '1px solid white' }}>{entry.name}</td>
+                <td style={{ padding: '10px', border: '1px solid white' }}>{entry.score}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        {showInput && (
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              value={playerName}
+              onChange={(event) => setPlayerName(event.target.value)}
+              placeholder="Enter your name"
+            />
+            <button type="submit">Submit</button>
+          </form>
+        )}
+      </div>
+      <button className="login-button" onClick={() => navigate("/")}>
+         Go to Login
       </button>
     </div>
+
   );
 }
 
 export default Leaderboard;
-```

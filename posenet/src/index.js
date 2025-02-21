@@ -29,7 +29,7 @@ function Main() {
           <Route path="/practice" element={<PracticePage/>} />
           <Route path="/game" element={<App player={player} setPlayer={setPlayer}/>} />
           <Route path="/scoreboard" element={<Scoreboard player={player} setPlayer={setPlayer} playerList={playerList} setPlayerList={setPlayerList}/>} />
-          <Route path="/leaderboard" element={<Leaderboard />} />
+          <Route path="/leaderboard" element={<Leaderboard player={player} setPlayer={setPlayer} playerList={playerList} setPlayerList={setPlayerList}/>} />
         </Routes>
       </Router>
     </React.StrictMode>
