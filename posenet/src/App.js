@@ -9,7 +9,7 @@ import "./App.css";
 
 
 // function encopasses a singular page and all the logic required in it
-function App() {
+function App(player, setPlayer) {
   /* 
   This portion outside the return function is all the logic. calling functions, apis and other things are done over here. Let's assume that our page code is a spy team.
   The code outside of the return function is like the cool tech guy who speaks into the spy's earpiece and tells it what to do.
@@ -116,7 +116,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Webcam
+        <Webcam   /* Nithin's notes: THE WEBCAM WINDOW (?) */
           ref={webcamRef}
           style={{
             position: "absolute",
@@ -128,9 +128,9 @@ function App() {
             zIndex: 10,
           }}
         />
-        <canvas
+        <canvas   
           ref={canvasRef}
-          style={{
+          style={{  /* Nithin's notes: THE WEBCAM WINDOW (?) */
             position: "absolute",
             top: "5%",
             left: "5%",
@@ -140,7 +140,7 @@ function App() {
           }}
         />
         <div
-          style={{
+          style={{  /* Nithin's notes: THE WEBCAM BORDER */
             position: "absolute",
             top: "5%",
             left: "5%",
@@ -149,8 +149,8 @@ function App() {
             border: "2px solid black",
             zIndex: 15,
           }}
-        >
-          <div
+        > 
+          <div /* Nithin's notes: THE WEBCAM DOT */
             style={{
               position: "absolute",
               width: "10px",
