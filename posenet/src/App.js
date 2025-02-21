@@ -120,8 +120,8 @@ function App(player, setPlayer) {
           ref={webcamRef}
           style={{
             position: "absolute",
-            top: "5%",
-            left: "5%",
+            top: "25%",
+            left: "30%",
             width: "640px",
             height: "480px",
             border: "2px solid red",
@@ -132,8 +132,8 @@ function App(player, setPlayer) {
           ref={canvasRef}
           style={{  /* Nithin's notes: THE WEBCAM WINDOW (?) */
             position: "absolute",
-            top: "5%",
-            left: "5%",
+            top: "25%",
+            left: "30%",
             width: "640px",
             height: "480px",
             zIndex: 9,
@@ -142,11 +142,11 @@ function App(player, setPlayer) {
         <div
           style={{  /* Nithin's notes: THE WEBCAM BORDER */
             position: "absolute",
-            top: "5%",
-            left: "5%",
+            top: "25%",
+            left: "30%",
             width: "640px",
             height: "480px",
-            border: "2px solid black",
+            border: "10px solid black",
             zIndex: 15,
           }}
         > 
@@ -164,7 +164,28 @@ function App(player, setPlayer) {
           ></div>
         </div>
       </header>
-
+      <div id="rectangle"
+        style={{
+          position: "absolute",
+          top: "81px",
+          left: "896px",
+          width: "(487/1440)vw",
+          height: "(142/1024)vh",
+          backgroundColor: "#C29F8C",
+          border: "8px solid black",
+          borderRadius: "26px",
+          zIndex: 9,
+      }}></div>
+      {/* <div 
+        style={{
+          position: "absolute",
+          top: "5%",
+          left: "60%",
+          width: "320px",
+          height: "160px",
+          border: "10px solid black",
+          zIndex: 15,
+        }}></div> */}
     </div>
   );
 }
