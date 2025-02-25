@@ -167,25 +167,24 @@ function App(player, setPlayer) {
       <div id="rectangle"
         style={{
           position: "absolute",
-          top: "81px",
-          left: "896px",
-          width: "(487/1440)vw",
-          height: "(142/1024)vh",
+          top: "(81*100/1024)vh",
+          left: "(896*100/1440)vw",
+          width: "(487*100/1440)vw",
+          height: "(142*100/1024)vh",
           backgroundColor: "#C29F8C",
           border: "8px solid black",
           borderRadius: "26px",
           zIndex: 9,
-      }}></div>
-      {/* <div 
+      }}>
+        {/* <img src="./images/skull_symbol.svg" 
         style={{
           position: "absolute",
-          top: "5%",
-          left: "60%",
-          width: "320px",
-          height: "160px",
-          border: "10px solid black",
-          zIndex: 15,
-        }}></div> */}
+          top: "99px",
+          left: "955px",
+          width: "100px",
+          height: "105.26px"
+        }}/> */}
+      </div>
     </div>
   );
 }
