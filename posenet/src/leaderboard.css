@@ -43,10 +43,28 @@
     background-color: #DBD9D9;
     border: solid 5px #A48383;
     border-radius: 60px;
-    padding: 10px 40px;
-
+    margin-top: 50px;
+    padding: 5px 40px;
     font-size: 85px;
     color: #198155;
     font-family: 'SairaStencilOne', sans-serif;
-    -webkit-text-stroke: 1.5px #BE8989;
+    -webkit-text-stroke: 1.25px #BE8989;
+    text-shadow: #afaeae 0px 5px 3px;
+}
+
+.board-title {
+    padding: 10px;
+    font-size: 60px;
+    color: #198155;
+    font-family: 'SairaStencilOne', sans-serif;
+    -webkit-text-stroke: 0.1px #BE8989;
+    text-shadow: #c1bfbf 0px 3px 3px;
+}
+
+.board-table{
+    border-collapse: collapse;
+    width: 100%;
+    border: 2px;
+    
+
 }

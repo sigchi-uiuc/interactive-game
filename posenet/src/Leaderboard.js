@@ -38,16 +38,16 @@ function Leaderboard(player, setPlayer, playerList, setPlayerList) {
 
   return (
     <div className="leaderboard-page">
-      <div className="leaderboard-title">🏆 Top Scores</div>
+      <div className="leaderboard-title">🏆 TOP SCORES</div>
       <div className="leaderboard-container">
+     
 
-      
-        <table style={{ borderCollapse: 'collapse', width: '50%', backgroundColor: '#198155', border: '2px solid white' }}>
+        <table className="board-table">
           <thead>
             <tr>
-              <th style={{ padding: '10px', border: '1px solid white' }}>Rank</th>
-              <th style={{ padding: '10px', border: '1px solid white' }}>Name</th>
-              <th style={{ padding: '10px', border: '1px solid white' }}>Score</th>
+              <th className="board-title">RANK</th>
+              <th className="board-title">NAME</th>
+              <th className="board-title">SCORE</th>
             </tr>
           </thead>
           <tbody>
