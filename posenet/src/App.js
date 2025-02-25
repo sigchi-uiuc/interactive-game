@@ -4,6 +4,7 @@ import * as posenet from "@tensorflow-models/posenet";
 import Webcam from "react-webcam";
 import { drawKeypoints, drawSkeleton } from "./utilities";
 import { useNavigate } from "react-router-dom";
+import { ReactComponent as Skull } from "./Images/skull_symbol.svg";
 
 import "./App.css";
 
@@ -167,23 +168,36 @@ function App(player, setPlayer) {
       <div id="rectangle"
         style={{
           position: "absolute",
-          top: "(81*100/1024)vh",
-          left: "(896*100/1440)vw",
-          width: "(487*100/1440)vw",
-          height: "(142*100/1024)vh",
+          top: "8vh",
+          left: "62vw",
+          width: "30vw",
+          height: "14vh",
           backgroundColor: "#C29F8C",
           border: "8px solid black",
           borderRadius: "26px",
           zIndex: 9,
       }}>
-        {/* <img src="./images/skull_symbol.svg" 
-        style={{
+        <Skull style={{ 
           position: "absolute",
-          top: "99px",
-          left: "955px",
-          width: "100px",
-          height: "105.26px"
-        }}/> */}
+          top: "3%", 
+          left: "10%", 
+          width: "100px", 
+          height: "105.26px" 
+        }} />
+        <Skull style={{ 
+          position: "absolute",
+          top: "3%", 
+          left: "40%", 
+          width: "100px", 
+          height: "105.26px" 
+        }} />
+        <Skull style={{ 
+          position: "absolute",
+          top: "3%", 
+          left: "70%", 
+          width: "100px", 
+          height: "105.26px" 
+        }} />
       </div>
     </div>
   );
