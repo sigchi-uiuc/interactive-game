@@ -73,7 +73,7 @@ function Leaderboard(player, setPlayer, playerList, setPlayerList) {
         )}
       </div>
       <button className="login-button" onClick={() => navigate("/")}>
-         Go to Login
+         Play Again
       </button>
     </div>
 
