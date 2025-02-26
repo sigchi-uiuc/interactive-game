@@ -1,6 +1,10 @@
 // javascript
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+
+import { ReactComponent as LeftKnife } from "./svgs/left_knife.svg";
+import { ReactComponent as RightKnife } from "./svgs/right_knife.svg";
+
 import './leaderboard.css';
 
 function Leaderboard(player, setPlayer, playerList, setPlayerList) {
@@ -38,7 +42,12 @@ function Leaderboard(player, setPlayer, playerList, setPlayerList) {
 
   return (
     <div className="leaderboard-page">
-      <div className="leaderboard-title">🏆 TOP SCORES</div>
+      <div className="leaderboard-header">
+        <LeftKnife className="leaderboard-knife"></LeftKnife>
+        <div className="leaderboard-title">TOP SCORES</div>
+        <RightKnife className="leaderboard-knife"></RightKnife>
+      </div>
+      
       <div className="leaderboard-container">
      
 
@@ -72,8 +81,8 @@ function Leaderboard(player, setPlayer, playerList, setPlayerList) {
           </form>
         )}
       </div>
-      <button className="login-button" onClick={() => navigate("/")}>
-         Play Again
+      <button className="play-again-button" onClick={() => navigate("/")}>
+         Play Again?
       </button>
     </div>
 

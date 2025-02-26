@@ -16,18 +16,31 @@
     color: white;
 }
 
-.leaderboard-title{
+.leaderboard-header {
     z-index: 1;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.leaderboard-title {
     background-color: #DBD9D9;
     border: solid 5px #A48383;
     border-radius: 60px;
     margin-top: 50px;
-    padding: 5px 40px;
-    font-size: 85px;
+    padding: 5px 80px;
+    font-size: 80px;
     color: #198155;
     font-family: 'SairaStencilOne', sans-serif;
     -webkit-text-stroke: 1.25px #BE8989;
     text-shadow: #afaeae 0px 5px 3px;
+}
+
+.leaderboard-knife {
+    padding-top: 30px;
 }
 
 .leaderboard-container {
@@ -45,16 +58,6 @@
     font-family: "Stencil Std", sans-serif;
 }
 
-.login-button {
-    background-color: #D5EBCB;
-    border: solid 3px #198155;
-    border-radius: 10px;
-    padding: 5px 15px;
-    color: #198155;
-    font-family: 'SairaStencilOne', sans-serif;
-    -webkit-text-stroke: 0.25px #BE8989;
-}
-
 .board-title {
     padding: 10px;
     font-size: 60px;
@@ -67,7 +70,17 @@
 .board-table{
     border-collapse: collapse;
     width: 100%;
-    border: 2px;
     
 
+}
+
+.play-again-button {
+    background-color: #D5EBCB;
+    border: solid 3px #198155;
+    border-radius: 10px;
+    margin-top: 20px;
+    padding: 5px 15px;
+    color: #198155;
+    font-family: 'SairaStencilOne', sans-serif;
+    -webkit-text-stroke: 0.25px #BE8989;
 }
