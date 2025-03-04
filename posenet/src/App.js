@@ -5,6 +5,7 @@ import Webcam from "react-webcam";
 import { drawKeypoints, drawSkeleton } from "./utilities";
 import { useNavigate } from "react-router-dom";
 import { ReactComponent as Skull } from "./Images/skull_symbol.svg";
+import { ReactComponent as Cleaver } from "./Images/cleaver_3D.svg";
 
 import "./App.css";
 
@@ -188,17 +189,26 @@ function App(player, setPlayer) {
           position: "absolute",
           top: "3%", 
           left: "40%", 
+          opacity: "0.3",
           width: "100px", 
           height: "105.26px" 
         }} />
         <Skull style={{ 
           position: "absolute",
           top: "3%", 
-          left: "70%", 
+          left: "70%",
+          opacity: "0.3",
           width: "100px", 
           height: "105.26px" 
         }} />
       </div>
+      <Cleaver style={{ 
+          position: "absolute",
+          top: "5vh", 
+          left: "6vw", 
+          width: "172", 
+          height: "193px" 
+        }} />
     </div>
   );
 }
