@@ -31,6 +31,40 @@ function App(player, setPlayer) {
   const [dotPosition, setDotPosition] = useState({ x: 50, y: 50 });
 
   /*
+  Fruit object: stores size (how big the fruit is/difficulty of slicing it) and probability (chance of getting this fruit). 
+  Have the score depend on size and probability (fruitPts = (100/size * probability) * 100)
+  */
+  function Fruit(size, probability) {
+    this.size = size;
+    this.probability = probability;
+  }
+
+  const banana = new Fruit(10, 0.5);
+  const pineapple = new Fruit(20, 0.3);
+  const apple = new Fruit(5, 0.2);
+  const strawberry = new Fruit(2, 0.1);
+
+  fruits = [banana, pineapple, apple, strawberry]; // not const because fruits may be added as time goes on in the game (i.e better fruits w/ higher score)
+
+
+  function checkDot() {
+    /*
+    if dotPosition is in fruitPosition +/- radius, fruit disappear
+    score += 100/fruitSize
+    */
+  }
+
+  function generateFruit() {
+    /* 
+    randomly choose fruit + randomly choose position (~25-75)
+    draw fruit onto canvas
+    checkDot()
+    disappear after 3-4 seconds
+    */
+  }
+
+
+  /*
   This function sets up our posenet model. Basically what we're doing is yelling at poseNet and wherever it is stored and telling them yo we want this specific model of 
   posenet, that give us an output of this rate, takes an input of *inputresolution* resolution and is *multiplier* big (with setting up net) The set interval function 
   within this const basically runs the detect function on the net const every 5 milliseconds.
