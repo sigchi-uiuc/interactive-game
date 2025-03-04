@@ -84,10 +84,7 @@ function Leaderboard({player, setPlayer, playerList, setPlayerList}) {
          Play Again?
       </button>
     </div>
-
   );
-
-  
 }
 
 export default Leaderboard;
