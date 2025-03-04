@@ -209,6 +209,17 @@ function App(player, setPlayer) {
           width: "172", 
           height: "193px" 
         }} />
+      <div style={{ 
+        position: "absolute",
+        top: "8vh", 
+        left: "17vw",
+        fontSize: "100px",
+        fontWeight: "bold",
+        color: "#2F6B48",
+        textShadow: "3px 3px 0px #A6786E",
+        fontFamily: "'Bungee', sans-serif",
+      }}> 000
+      </div>
     </div>
   );
 }
