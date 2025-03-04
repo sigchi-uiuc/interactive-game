@@ -54,11 +54,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
     font-family: "Stencil Std", sans-serif;
 }
 
 .board-title {
+    
     padding: 10px;
     font-size: 60px;
     color: #198155;
@@ -67,10 +68,21 @@
     text-shadow: #c1bfbf 0px 3px 3px;
 }
 
+.board-row {
+    padding: 10px;
+    text-align: center;
+    font-size: 40px;
+    color: #198155;
+    font-family: 'SairaStencilOne', sans-serif;
+    -webkit-text-stroke: 0.2px #BE8989;
+    text-shadow: #c1bfbf 0px 3px 3px;
+}
+
 .board-table{
     border-collapse: collapse;
     width: 100%;
-    
+    margin-top: 100px;
+    text-align: center;
 
 }
 

@@ -7,12 +7,48 @@ import { ReactComponent as RightKnife } from "./svgs/right_knife.svg";
 
 import './leaderboard.css';
 
-function Leaderboard(player, setPlayer, playerList, setPlayerList) {
+
+
+function Leaderboard({player, setPlayer, playerList, setPlayerList}) {
   const navigate = useNavigate();
-  const [scores, setScores] = useState([]);
   const [playerName, setPlayerName] = useState("");
   const [latestScore, setLatestScore] = useState(null);
   const [showInput, setShowInput] = useState(false);
+
+
+
+  const [scores, setScores] = useState([
+    { name: 'Alice', score: 8500},
+    { name: 'Bob', score: 9200},
+    { name: 'Charlie', score: 7800},
+    { name: 'David', score: 10200},
+    { name: 'Eve', score: 8600}
+  ]);
+  
+  
+  const [newName, setNewName] = useState("");
+  const [newScore, setNewScore] = useState("");
+  
+  const addPlayer = () => {
+    if (!newName || isNaN(newScore) || newScore.trim() === "") return; // Prevent invalid inputs
+  
+    const updatedScores = [...scores, { name: newName, score: parseInt(newScore, 10) }];
+    
+    // Sort players by highest score first
+    updatedScores.sort((a, b) => b.score - a.score);
+  
+    setScores(updatedScores); // Update state to reflect changes
+  
+    // Reset input fields after submission
+    setNewName("");
+    setNewScore("");
+  };
+
+
+
+  // useEffect(() => {
+  //   setPlayerList([["newPlayer", "50"]]);
+  // }, [setPlayerList]);
 
   useEffect(() => {
     const storedScores = JSON.parse(localStorage.getItem("leaderboard")) || [];
@@ -53,22 +89,23 @@ function Leaderboard(player, setPlayer, playerList, setPlayerList) {
 
         <table className="board-table">
           <thead>
-            <tr>
-              <th className="board-title">RANK</th>
-              <th className="board-title">NAME</th>
-              <th className="board-title">SCORE</th>
+            <tr className="board-title">
+              <th>RANK</th>
+              <th>NAME</th>
+              <th>SCORE</th>
             </tr>
           </thead>
           <tbody>
-            {scores.map((entry, index) => (
-              <tr key={index}>
-                <td style={{ padding: '10px', border: '1px solid white' }}>{index + 1}</td>
-                <td style={{ padding: '10px', border: '1px solid white' }}>{entry.name}</td>
-                <td style={{ padding: '10px', border: '1px solid white' }}>{entry.score}</td>
+            {playerList.map((entry, index) => (
+              <tr key={index} className="board-row">
+                <td>{index + 1}</td>
+                <td>{entry[0]}</td>
+                <td>{entry[1]}</td>
               </tr>
             ))}
           </tbody>
         </table>
+
         {showInput && (
           <form onSubmit={handleSubmit}>
             <input
@@ -87,6 +124,8 @@ function Leaderboard(player, setPlayer, playerList, setPlayerList) {
     </div>
 
   );
+
+  
 }
 
 export default Leaderboard;
