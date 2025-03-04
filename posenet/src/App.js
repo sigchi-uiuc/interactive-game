@@ -211,13 +211,13 @@ function App(player, setPlayer) {
         }} />
       <div style={{ 
         position: "absolute",
-        top: "8vh", 
+        top: "6vh", 
         left: "17vw",
-        fontSize: "100px",
-        fontWeight: "bold",
+        fontSize: "120px",
+        fontWeight: "400",
         color: "#2F6B48",
         textShadow: "3px 3px 0px #A6786E",
-        fontFamily: "'Bungee', sans-serif",
+        fontFamily: "'Saira Stencil One', sans-serif",
       }}> 000
       </div>
     </div>
