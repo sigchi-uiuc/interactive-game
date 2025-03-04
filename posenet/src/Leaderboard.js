@@ -11,38 +11,7 @@ import './leaderboard.css';
 
 function Leaderboard({player, setPlayer, playerList, setPlayerList}) {
   const navigate = useNavigate();
-  const [playerName, setPlayerName] = useState("");
-  const [latestScore, setLatestScore] = useState(null);
-  const [showInput, setShowInput] = useState(false);
-
-
-
-  const [scores, setScores] = useState([
-    { name: 'Alice', score: 8500},
-    { name: 'Bob', score: 9200},
-    { name: 'Charlie', score: 7800},
-    { name: 'David', score: 10200},
-    { name: 'Eve', score: 8600}
-  ]);
-  
-  
-  const [newName, setNewName] = useState("");
-  const [newScore, setNewScore] = useState("");
-  
-  const addPlayer = () => {
-    if (!newName || isNaN(newScore) || newScore.trim() === "") return; // Prevent invalid inputs
-  
-    const updatedScores = [...scores, { name: newName, score: parseInt(newScore, 10) }];
-    
-    // Sort players by highest score first
-    updatedScores.sort((a, b) => b.score - a.score);
-  
-    setScores(updatedScores); // Update state to reflect changes
-  
-    // Reset input fields after submission
-    setNewName("");
-    setNewScore("");
-  };
+  const [sortedPlayerList, setSortedPlayerList] = useState([]);
 
 
 
@@ -51,30 +20,23 @@ function Leaderboard({player, setPlayer, playerList, setPlayerList}) {
   // }, [setPlayerList]);
 
   useEffect(() => {
-    const storedScores = JSON.parse(localStorage.getItem("leaderboard")) || [];
-    setScores(storedScores);
+    // sort the list of players and their scores in descending order (ranked by score)
+    const sortedList = ([...playerList].sort((a, b) => Number(b[1]) - Number(a[1]))).slice(0, 5);
+    setSortedPlayerList(sortedList);
+  }, [playerList] );
 
-    const lastScore = sessionStorage.getItem("latestScore");
-    if (lastScore) {
-      setLatestScore(parseInt(lastScore, 10));
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   if (!playerName) return;
 
-      const isHighScore = storedScores.length < 5 || lastScore > storedScores[4]?.score;
-      setShowInput(isHighScore);
-    }
-  }, []);
+  //   const newScores = [...scores, { name: playerName, score: latestScore }]
+  //     .sort((a, b) => b.score - a.score)
+  //     .slice(0, 5)
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if (!playerName) return;
-
-    const newScores = [...scores, { name: playerName, score: latestScore }]
-      .sort((a, b) => b.score - a.score)
-      .slice(0, 5)
-
-    setScores(newScores);
-    localStorage.setItem("leaderboard", JSON.stringify(newScores));
-    setShowInput(false);
-  };
+  //   setScores(newScores);
+  //   localStorage.setItem("leaderboard", JSON.stringify(newScores));
+  //   setShowInput(false);
+  // };
 
   return (
     <div className="leaderboard-page">
@@ -96,7 +58,7 @@ function Leaderboard({player, setPlayer, playerList, setPlayerList}) {
             </tr>
           </thead>
           <tbody>
-            {playerList.map((entry, index) => (
+            {sortedPlayerList.map((entry, index) => (
               <tr key={index} className="board-row">
                 <td>{index + 1}</td>
                 <td>{entry[0]}</td>
@@ -106,7 +68,7 @@ function Leaderboard({player, setPlayer, playerList, setPlayerList}) {
           </tbody>
         </table>
 
-        {showInput && (
+        {/* {showInput && (
           <form onSubmit={handleSubmit}>
             <input
               type="text"
@@ -116,7 +78,7 @@ function Leaderboard({player, setPlayer, playerList, setPlayerList}) {
             />
             <button type="submit">Submit</button>
           </form>
-        )}
+        )} */}
       </div>
       <button className="play-again-button" onClick={() => navigate("/")}>
          Play Again?

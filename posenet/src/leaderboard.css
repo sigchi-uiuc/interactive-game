@@ -59,40 +59,41 @@
 }
 
 .board-title {
-    
     padding: 10px;
     font-size: 60px;
     color: #198155;
     font-family: 'SairaStencilOne', sans-serif;
     -webkit-text-stroke: 0.1px #BE8989;
-    text-shadow: #c1bfbf 0px 3px 3px;
+    text-shadow: #c1bfbf 0px 5px 3px;
 }
 
 .board-row {
     padding: 10px;
-    text-align: center;
     font-size: 40px;
     color: #198155;
     font-family: 'SairaStencilOne', sans-serif;
     -webkit-text-stroke: 0.2px #BE8989;
-    text-shadow: #c1bfbf 0px 3px 3px;
+    text-shadow: #acacac 0px 4px 3px;
 }
 
-.board-table{
+.board-table {
     border-collapse: collapse;
     width: 100%;
     margin-top: 100px;
+    margin-bottom: 40px;
     text-align: center;
-
+    flex-grow: 1;
 }
 
+
 .play-again-button {
-    background-color: #D5EBCB;
-    border: solid 3px #198155;
+    background-color: #C29F8C;
+    border: solid 5px #5c473c;
     border-radius: 10px;
-    margin-top: 20px;
+    margin: 30px 0px;
     padding: 5px 15px;
-    color: #198155;
+    color: #5c473c;
+    font-size: 40px;
     font-family: 'SairaStencilOne', sans-serif;
     -webkit-text-stroke: 0.25px #BE8989;
 }
