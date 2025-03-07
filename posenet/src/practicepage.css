@@ -1,0 +1,78 @@
+html, body {
+    background-color: #ECFCE5;
+    color: black;
+    margin: 0;
+    height: 100%;
+  }
+
+.back {
+    background-color: #ECFCE5;
+    display: flex;
+}
+
+h1 {
+  display: block;
+  font-size: 2em;
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+
+p {
+    color: #198155;
+}
+
+.login-button {
+    background-color: #D5EBCB;
+    border: solid 3px #198155;
+    border-radius: 10px;
+    padding: 5px 15px;
+    color: #198155;
+    font-family: 'SairaStencilOne', sans-serif;
+    -webkit-text-stroke: 0.25px #BE8989;
+}
+
+.login-button:hover {
+    background-color: #198155;
+    color: white;
+  }
+
+.home-button {
+    display: flex;
+    border: solid 3px #000000;
+    background-color: #727272;
+    border-radius: 10px;
+    padding: 15px;
+    color: white;
+    font-family: 'SairaStencilOne', sans-serif;
+    -webkit-text-stroke: 0.25px #BE8989;
+    position: fixed;
+    right : 5px;
+}
+
+.home-button:hover {
+    background-color: rgb(75, 74, 74);
+  }
+
+.div-test {
+    width: 100%;
+    display: block;
+}
+
+.table-of-contents {
+    position: absolute;
+    bottom : 5px;
+}
+
+.main-box {
+    background-color: white;
+    display: block;
+    padding: 20px;
+    border-radius: 25px;
+    text-align: center;
+    margin:auto;
+    width: fit-content;
+    
+}
