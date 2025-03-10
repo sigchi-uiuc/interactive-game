@@ -12,7 +12,6 @@ function Scoreboard(player, setPlayer, playerList, setPlayerList) {
       <div style={{ height: '100vh', display: 'flex', flexDirection: 'column' }}>
 
         <div style={{ backgroundColor: 'green', height: '35%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-
           <div style={{ backgroundColor: 'white', height: '50%', width: '60%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', padding: '20px' }}>
             <h1 style={{ color: 'black', fontSize: '2rem', marginBottom: '10px', textAlign: 'center' }}>
               Score
@@ -21,20 +20,19 @@ function Scoreboard(player, setPlayer, playerList, setPlayerList) {
               Best Score
             </p>
           </div>
-
         </div>
-      </div>
 
-      <div style={{ backgroundColor: 'blue', height: '65%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-        <h1 style={{ color: 'white' }}>Bottom Section </h1>
-        
-        <div style={ {display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '10px', width: '80%', height: '80%' } } >
-          <div style={{ backgroundColor: 'lightpink', padding: '20px'}}>Person 1</div>
-          <div style={{ backgroundColor: 'lightpink', padding: '20px'}}>Person 2</div>
-          <div style={{ backgroundColor: 'lightpink', padding: '20px'}}>Person 3</div>
-          <div style={{ backgroundColor: 'lightpink', padding: '20px'}}>Person 4</div>
-          <div style={{ backgroundColor: 'lightpink', padding: '20px'}}>Person 5</div>
-          <div style={{ backgroundColor: 'lightpink', padding: '20px'}}>Person 6</div>
+        <div style={{ backgroundColor: 'blue', height: '65%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          <h1 style={{ color: 'white' }}>Bottom Section </h1>
+          
+          <div style={ {display: 'grid', gridTemplateColumns: 'repeat(1, 5fr)', gap: '10px', width: '80%', height: '80%' } } >
+            <div style={{ backgroundColor: 'lightpink', padding: '20px'}}>Person 1</div>
+            <div style={{ backgroundColor: 'lightpink', padding: '20px'}}>Person 2</div>
+            <div style={{ backgroundColor: 'lightpink', padding: '20px'}}>Person 3</div>
+            <div style={{ backgroundColor: 'lightpink', padding: '20px'}}>Person 4</div>
+            <div style={{ backgroundColor: 'lightpink', padding: '20px'}}>Person 5</div>
+            <div style={{ backgroundColor: 'lightpink', padding: '20px'}}>Person 6</div>
+          </div>
         </div>
 
       </div>
