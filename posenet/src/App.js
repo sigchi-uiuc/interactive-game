@@ -166,11 +166,11 @@ function App(player, setPlayer) {
       </header>
       <div id="rectangle"
         style={{
-          position: "relative",
+          position: "absolute",
           top: "81px",
           left: "896px",
-          width: "487px",
-          height: "142px",
+          width: "(487/1440)vw",
+          height: "(142/1024)vh",
           backgroundColor: "#C29F8C",
           border: "8px solid black",
           borderRadius: "26px",
