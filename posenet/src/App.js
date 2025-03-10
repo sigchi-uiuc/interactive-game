@@ -4,6 +4,11 @@ import * as posenet from "@tensorflow-models/posenet";
 import Webcam from "react-webcam";
 import { drawKeypoints, drawSkeleton } from "./utilities";
 import { useNavigate } from "react-router-dom";
+import bananaPic from "./fruitPics./banana.svg";
+import strawPic from "./fruitPics./strawberry.svg";
+import grapesPic from "./fruitPics./grapes.svg";
+// import applePic from "./fruitPics./apple.svg";
+
 
 import "./App.css";
 
@@ -35,34 +40,40 @@ function App(player, setPlayer) {
   Have the score depend on size and probability (fruitPts = (100/size * probability) * 100)
   */
   function Fruit(size, probability) {
-    this.size = size;
+    this.radius = size;
     this.probability = probability;
+    this.pic = null;
+    this.location = {x: null, y: null} ; // pair for location
   }
 
-  const banana = new Fruit(10, 0.5);
-  const pineapple = new Fruit(20, 0.3);
-  const apple = new Fruit(5, 0.2);
-  const strawberry = new Fruit(2, 0.1);
+  const banana = new Fruit(10, 0.5, bananaPic);
+  const grapes = new Fruit(20, 0.3, grapesPic);
+  // const apple = new Fruit(5, 0.2, applePic);
+  const strawberry = new Fruit(2, 0.1, strawPic);
 
-  fruits = [banana, pineapple, apple, strawberry]; // not const because fruits may be added as time goes on in the game (i.e better fruits w/ higher score)
-
+  fruits = [banana, grapes, strawberry]; // not const because fruits may be added as time goes on in the game (i.e better fruits w/ higher score)
+  lives = 3;
 
   function checkDot() {
     /*
-    if dotPosition is in fruitPosition +/- radius, fruit disappear
-    score += 100/fruitSize
+    for each fruit on canvas, 
+      if dotPosition is in fruit'sPosition +/- radius, fruit disappear
+      score += 100/fruitSize
     */
   }
 
   function generateFruit() {
-    /* 
-    randomly choose fruit + randomly choose position (~25-75)
-    draw fruit onto canvas
+    genFruit = fruits[Math.floor(Math.random() * 4)]; // choose fruit from (0, 3)
+    genFruit.location = {x: Math.floor(Math.random() * 50) + 25, y: Math.floor(Math.random() * 50) + 25}; // choose location from (25, 75)
+    /*
+    render fruit on canvas
     checkDot()
-    disappear after 3-4 seconds
+    disappear after 3-4 seconds - lose life if fruit disappears 
     */
+    
   }
 
+// Note: wherever dot is rendering, we can also render the fruit
 
   /*
   This function sets up our posenet model. Basically what we're doing is yelling at poseNet and wherever it is stored and telling them yo we want this specific model of 
