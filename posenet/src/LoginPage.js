@@ -21,23 +21,24 @@ function LandingPage() {
 
   // need to implement return part
   return (
-    <div className="landing-page">
+    <div className="flex flex-col items-center justify-center h-screen bg-base-200">
       {/*We are creating a spy gadget (component) called Button. This button sends the mission to the practice page by using the phoneline we set up earlier. Here's a 
       list of react components and the basics of how to implement them https://react.dev/reference/react-dom/components. React isn't easy, so if you find
       yourself confused trying google how to make *insert hyperspecific thing you are trying to build* in react and you'll get a bunch of helpful tutorials.
       (Sometimes mr.gpt does a real good job on telling you how to do this, but sometimes it does not)*/}
-      <input
-        type="text"
-        className="input"
-        placeholder="Enter your username"
-        value={player}
-        onChange={(e) => setPlayer(e.target.value)}
-        onClick
-      />
+      <div className="card bg-white shadow-xl p-8 flex flex-col items-center gap-4">
+        <input
+          type="text"
+          className="input input-bordered w-80"
+          placeholder="Enter your username"
+          value={player}
+          onChange={(e) => setPlayer(e.target.value)}
+        />
 
-      <button className="btn" onClick={startGame}> 
-        Go to Practice
-      </button>
+        <button className="btn btn-primary w-40" onClick={startGame}> 
+          Go to Practice
+        </button>
+      </div>
     </div>
   );
 }
