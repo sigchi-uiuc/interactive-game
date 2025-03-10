@@ -26,10 +26,15 @@ function LandingPage() {
       list of react components and the basics of how to implement them https://react.dev/reference/react-dom/components. React isn't easy, so if you find
       yourself confused trying google how to make *insert hyperspecific thing you are trying to build* in react and you'll get a bunch of helpful tutorials.
       (Sometimes mr.gpt does a real good job on telling you how to do this, but sometimes it does not)*/}
+      
+      <h1 className="text-4xl font-bold text-primary mb-8">
+      SIGCHI EOH 2025 : Motion Sensing Fruit Ninja
+      </h1>
+      
       <div className="card bg-white shadow-xl p-8 flex flex-col items-center gap-4">
         <input
           type="text"
-          className="input input-bordered w-80"
+          className="input input-bordered w-80 text-white"
           placeholder="Enter your username"
           value={player}
           onChange={(e) => setPlayer(e.target.value)}
@@ -47,7 +52,7 @@ function LandingPage() {
 One thing you will see here is that instead of giving detailed styling for the button I gave it a class="btn". For this project, I've tried to implement a 
 CSS system called DaisyUI. DaisyUI (like tailwind and other such things) is basically a set of css presets. Instead of defining everything about your button,
 you can just simply as Daisy for how she likes to style her button by doing class="btn" (btn being the name of her preset). Here's a website listing all the 
-things Daisy can help you withh https://daisyui.com/components/. Either jsx or html should work - just use whichever one works, javascript is finnicky.
+things Daisy can help you with https://daisyui.com/components/. Either jsx or html should work - just use whichever one works, javascript is finnicky.
 */
 
 export default LandingPage;
