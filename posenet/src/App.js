@@ -166,26 +166,16 @@ function App(player, setPlayer) {
       </header>
       <div id="rectangle"
         style={{
-          position: "absolute",
+          position: "relative",
           top: "81px",
           left: "896px",
-          width: "(487/1440)vw",
-          height: "(142/1024)vh",
+          width: "487px",
+          height: "142px",
           backgroundColor: "#C29F8C",
           border: "8px solid black",
           borderRadius: "26px",
           zIndex: 9,
       }}></div>
-      {/* <div 
-        style={{
-          position: "absolute",
-          top: "5%",
-          left: "60%",
-          width: "320px",
-          height: "160px",
-          border: "10px solid black",
-          zIndex: 15,
-        }}></div> */}
     </div>
   );
 }
