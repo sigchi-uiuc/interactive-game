@@ -21,17 +21,12 @@ function LandingPage() {
 
   // need to implement return part
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-base-200">
-      {/*We are creating a spy gadget (component) called Button. This button sends the mission to the practice page by using the phoneline we set up earlier. Here's a 
-      list of react components and the basics of how to implement them https://react.dev/reference/react-dom/components. React isn't easy, so if you find
-      yourself confused trying google how to make *insert hyperspecific thing you are trying to build* in react and you'll get a bunch of helpful tutorials.
-      (Sometimes mr.gpt does a real good job on telling you how to do this, but sometimes it does not)*/}
-      
-      <h1 className="text-4xl font-bold text-primary mb-8">
-      SIGCHI EOH 2025 : Motion Sensing Fruit Ninja
+    <div className="flex flex-col items-center justify-center h-screen bg-green-600"> 
+      <h1 className="text-6xl font-bold text-primary mb-8 text-white">
+      Kitchen Ninja
       </h1>
       
-      <div className="card bg-white shadow-xl p-8 flex flex-col items-center gap-4">
+      <div className="card bg-green-400 shadow-xl p-8 flex flex-col items-center gap-4">
         <input
           type="text"
           className="input input-bordered w-80 text-white"
@@ -40,10 +35,14 @@ function LandingPage() {
           onChange={(e) => setPlayer(e.target.value)}
         />
 
-        <button className="btn btn-primary w-40" onClick={startGame}> 
+        <button className="btn btn-primary w-40 bg-green-500" onClick={startGame}> 
           Go to Practice
         </button>
       </div>
+      <span className="absolute top-13 left-20 text-8xl">🍌</span>
+      <div className="absolute top-16 right-6 text-4xl">🍓</div>
+      <div className="absolute top-1/3 left-1/3 text-4xl rotate-12">🔪</div>
+      <div className="absolute top-1/3 right-1/3 text-4xl rotate-[-12deg] transform scale-x-[-1]">🔪</div>
     </div>
   );
 }
