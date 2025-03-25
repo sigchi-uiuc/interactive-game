@@ -1,4 +1,19 @@
-html, body {
+@font-face {
+    font-family: 'Inter Regular';
+    src: url('./PracticeFonts/Inter-VariableFont_opsz,wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    background-color: #ECFCE5;
+    color: black;
+    margin: 0;
+    height: 100%;
+    font-size: 3vmin;
+  }
+
+html {
     background-color: #ECFCE5;
     color: black;
     margin: 0;
@@ -7,7 +22,7 @@ html, body {
 
 .back {
     background-color: #ECFCE5;
-    display: flex;
+    display: block;
 }
 
 h1 {
@@ -18,20 +33,23 @@ h1 {
   margin-left: 0;
   margin-right: 0;
   font-weight: bold;
+  font-family: 'Inter Regular', sans-serif;
 }
 
 p {
     color: #198155;
+    font-size: em;
+    font-family: 'Inter Regular', sans-serif;
 }
 
 .login-button {
     background-color: #D5EBCB;
     border: solid 3px #198155;
     border-radius: 10px;
+    margin-top: 50px;
     padding: 5px 15px;
+    font-family: 'Inter Regular', sans-serif;
     color: #198155;
-    font-family: 'SairaStencilOne', sans-serif;
-    -webkit-text-stroke: 0.25px #BE8989;
 }
 
 .login-button:hover {
@@ -40,16 +58,16 @@ p {
   }
 
 .home-button {
-    display: flex;
+    display: block;
     border: solid 3px #000000;
     background-color: #727272;
     border-radius: 10px;
     padding: 15px;
     color: white;
-    font-family: 'SairaStencilOne', sans-serif;
     -webkit-text-stroke: 0.25px #BE8989;
     position: fixed;
-    right : 5px;
+    font-family: 'Inter Regular', sans-serif;
+    right: 5px;
 }
 
 .home-button:hover {
@@ -76,3 +94,18 @@ p {
     width: fit-content;
     
 }
+
+.block-c {
+    padding-top: 75px;
+}
+
+.body-para {
+    padding-top: 30px;
+    width: 60%;
+    margin: auto;
+    text-align: center;
+}
+
+footer {
+    box-shadow: 0 50vh 0 50vh #ECFCE5;
+  }
