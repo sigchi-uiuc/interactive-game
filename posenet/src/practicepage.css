@@ -109,3 +109,10 @@ p {
 footer {
     box-shadow: 0 50vh 0 50vh #ECFCE5;
   }
+
+.item1-fruitstyle {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}

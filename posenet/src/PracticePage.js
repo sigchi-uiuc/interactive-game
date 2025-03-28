@@ -49,8 +49,7 @@ function PracticePage() {
   <div className="carousel block-c">
   
     <div id="item1" className="carousel-item div-test">
-    <Radish height= "50px" width = "50px"></Radish>
-    <HalfApple width = "50px" height= "50px"></HalfApple>
+    
       <div className= "main-box">
         <h1>Welcome to the practice tutorial!</h1>
         <a href="#item2" onClick={() => changeIndict(1)}>
@@ -59,6 +58,10 @@ function PracticePage() {
       </div>
       <div>
 
+      </div>
+      <div className= "item1-fruitstyle">
+        <Radish width="30vh" height="30vh" />
+        <HalfApple width="30vh" height="30vh" />
       </div>
     </div>
 
