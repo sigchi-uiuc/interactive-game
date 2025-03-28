@@ -1,8 +1,13 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { ReactComponent as Grape } from "./LoginPageImages/logingrape.svg";
+import { ReactComponent as Strawberry } from "./LoginPageImages/loginstrawberry.svg";
+import { ReactComponent as Plum } from "./LoginPageImages/loginplum.svg";
+import { ReactComponent as KnifeLeft } from "./LoginPageImages/loginknife2.svg";
+import {ReactComponent as KnifeRight} from "./LoginPageImages/loginknife1.svg";
 
-function LandingPage() {  
+function LandingPage() {
   /*
   Keeping with our spy analogy, const navigate is the phoneline LandingPage will use to transfer missions to other agents. useNavigate() is the company they 
   have contracted to run these services.
@@ -39,10 +44,12 @@ function LandingPage() {
           Go to Practice
         </button>
       </div>
-      <span className="absolute top-13 left-20 text-8xl">🍌</span>
-      <div className="absolute top-16 right-6 text-4xl">🍓</div>
-      <div className="absolute top-1/3 left-1/3 text-4xl rotate-12">🔪</div>
-      <div className="absolute top-1/3 right-1/3 text-4xl rotate-[-12deg] transform scale-x-[-1]">🔪</div>
+      <Plum width = "35vh" height= "35h" className="absolute top-30 left-40"></Plum>
+      <Grape width = "25vh" height = "25vh" className="absolute bottom-25 right-40"></Grape>
+      <Strawberry width = "25vh" height = "25vh" className="absolute bottom-5 right- 30"></Strawberry>
+      <KnifeRight width="30vh" height="30vh" className="absolute top-10 right-110"></KnifeRight>     
+      <KnifeLeft width = "30vh" height = "30vh" className="absolute top-10 left-110"></KnifeLeft>
+
     </div>
   );
 }
