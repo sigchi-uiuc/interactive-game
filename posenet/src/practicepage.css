@@ -10,7 +10,6 @@ body {
     color: black;
     margin: 0;
     height: 100%;
-    font-size: 3vmin;
   }
 
 html {
@@ -18,6 +17,7 @@ html {
     color: black;
     margin: 0;
     height: 100%;
+    font-size: 3vmin;
   }
 
 .back {
@@ -38,7 +38,7 @@ h1 {
 
 p {
     color: #198155;
-    font-size: em;
+    font-size: 1em;
     font-family: 'Inter Regular', sans-serif;
 }
 
@@ -46,7 +46,7 @@ p {
     background-color: #D5EBCB;
     border: solid 3px #198155;
     border-radius: 10px;
-    margin-top: 50px;
+    margin-top: 2.5em;
     padding: 5px 15px;
     font-family: 'Inter Regular', sans-serif;
     color: #198155;
@@ -61,8 +61,8 @@ p {
     display: block;
     border: solid 3px #000000;
     background-color: #727272;
-    border-radius: 10px;
-    padding: 15px;
+    border-radius: 0.6em;
+    padding: 1em;
     color: white;
     -webkit-text-stroke: 0.25px #BE8989;
     position: fixed;
@@ -87,25 +87,95 @@ p {
 .main-box {
     background-color: white;
     display: block;
-    padding: 20px;
-    border-radius: 25px;
+    padding: 1.2em;
+    border-radius: 1.4em;
     text-align: center;
     margin:auto;
     width: fit-content;
-    
+    max-width: 35vw;
 }
 
 .block-c {
-    padding-top: 75px;
+    padding-top: 4.6em;
 }
 
 .body-para {
-    padding-top: 30px;
+    padding-top: 1.7em;
     width: 60%;
     margin: auto;
     text-align: center;
+    display: block;
 }
 
 footer {
     box-shadow: 0 50vh 0 50vh #ECFCE5;
   }
+
+/* Positioning */
+.image-container {
+    position: relative;
+    width: 100%;
+    display: block;
+
+}
+
+.image {
+    position: absolute;
+    width: 4.5em;
+    height: 4.5em;
+}
+/* Standard Positionings */
+.tenth1-h {
+    top: 15vh;
+}
+.tenth2-h {
+    top: 20vh;
+}
+.tenth3-h {
+    top: 30vh;
+}
+.tenth4-h {
+    top: 40vh;
+}
+.tenth5-h {
+    top: 50vh;
+}
+.tenth6-h {
+    top: 60vh;
+}
+.tenth7-h {
+    top: 70vh;
+}
+.tenth8-h {
+    top: 75vh;
+}
+.tenthlost-h {
+    top: 90vh;
+}
+.tenth1-w {
+    left: 15vw;
+}
+.tenth2-w {
+    left: 20vw;
+}
+.tenth3-w {
+    left: 30vw;
+}
+.tenth4-w {
+    left: 40vw;
+}
+.tenth5-w {
+    left: 50vw;
+}
+.tenth6-w {
+    left: 60vw;
+}
+.tenth7-w {
+    left: 70vw;
+}
+.tenth8-w {
+    left: 80vw;
+}
+.tenth9-w {
+    left: 85vw;
+}
