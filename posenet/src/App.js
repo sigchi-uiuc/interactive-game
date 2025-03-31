@@ -4,37 +4,116 @@ import * as posenet from "@tensorflow-models/posenet";
 import Webcam from "react-webcam";
 import { drawKeypoints, drawSkeleton } from "./utilities";
 import { useNavigate } from "react-router-dom";
+import { ReactComponent as bananaPic} from "./fruitPics/banana.svg"
+import { ReactComponent as strawPic} from "./fruitPics/strawberry.svg"
+import { ReactComponent as grapesPic} from "./fruitPics/grapes.svg"
 
+
+import * as THREE from "three"; // Import Three.js
 import "./App.css";
+import { Canvas } from '@react-three/fiber';
+import { useLoader } from '@react-three/fiber';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 
-
-// function encopasses a singular page and all the logic required in it
+function Obj({ position, url ,rotation }) {
+  const gltf = useLoader(GLTFLoader, url); // Load the model
+  return (
+    <primitive object={gltf.scene} position={position} rotation={rotation} scale={[1, 1, 1]} />
+  );
+}
 function App(player, setPlayer) {
-  /* 
-  This portion outside the return function is all the logic. calling functions, apis and other things are done over here. Let's assume that our page code is a spy team.
-  The code outside of the return function is like the cool tech guy who speaks into the spy's earpiece and tells it what to do.
-  */
   const navigate = useNavigate();
-  
-  // webcamRef sets up the variable that we will use to refer to the webcam and canvasRef sets the reference for the space that will show us what the webcam is capturing.
   const webcamRef = useRef(null);
   const canvasRef = useRef(null);
-
-  /*
-  This is the variable that stores the position of our dot. An ~interesting~ quirk of javascript/react is that if you want to set a variable that you directly change, you 
-  set it up with the following format: const [varName, setVarName] = useState(*insert base state of variable*). When you want to change it you call setVarName(*insert 
-  what you want to change the varible to*). Sometimes it may not work and you might have to do something else, but thats what our lord and savior stackOverflow is for.
-  */
-  /*
-  Another tidbit is that useState() is what enables any changes to variables to be made (shoutout React), so if you want to set something to be able to change, use useState
-  */
   const [dotPosition, setDotPosition] = useState({ x: 50, y: 50 });
 
+
   /*
-  This function sets up our posenet model. Basically what we're doing is yelling at poseNet and wherever it is stored and telling them yo we want this specific model of 
-  posenet, that give us an output of this rate, takes an input of *inputresolution* resolution and is *multiplier* big (with setting up net) The set interval function 
-  within this const basically runs the detect function on the net const every 5 milliseconds.
+  Fruit object: stores size (how big the fruit is/difficulty of slicing it) and probability (chance of getting this fruit). 
+  Have the score depend on size and probability (fruitPts = (100/size * probability) * 100)
   */
+  function Fruit(size, probability) {
+    this.radius = size;
+    this.probability = probability;
+    this.pic = null;
+    this.location = {x: null, y: null} ; // pair for location
+  }
+
+  const [fruits, setFruits] = useState([]);
+  const fruitImages = [bananaPic,strawPic,grapesPic]
+  const [timeSpentOnPage, setTimeSpentOnPage] = useState(0);
+  const [score,setScore] = useState(0);
+  const [livesNum, setLivesNum] = useState(3);
+  const [fruitnum, setFruitnum] = useState(0);
+  const [accuracy,setAccuracy] = useState(0);
+
+
+  //const banana = new Fruit(10, 0.5, bananaPic);
+  //const grapes = new Fruit(20, 0.3, grapesPic);
+  // const apple = new Fruit(5, 0.2, applePic);
+  //const strawberry = new Fruit(2, 0.1, strawPic);
+
+  //const fruits = [banana, grapes, strawberry]; // not const because fruits may be added as time goes on in the game (i.e better fruits w/ higher score)
+  //const lives = 3;
+
+  function checkDot() {
+    /*
+    for each fruit on canvas, 
+      if dotPosition is in fruit'sPosition +/- radius, fruit disappear
+      score += 100/fruitSize
+    */
+  }
+
+  function generateFruit() {
+    //genFruit = fruits[Math.floor(Math.random() * 4)]; // choose fruit from (0, 3)
+    //genFruit.location = {x: Math.floor(Math.random() * 50) + 25, y: Math.floor(Math.random() * 50) + 25}; // choose location from (25, 75)
+    /*
+    render fruit on canvas
+    checkDot()
+    disappear after 3-4 seconds - lose life if fruit disappears 
+    */
+    console.log("in generateFruit")
+    setFruitnum(fruitnum+1);
+    const tempFruit = {
+      fruitid: Math.random(),
+      x : Math.floor(Math.random()*60)+10,
+      y : Math.floor(Math.random()*60)+10,
+      fruitpic: fruitImages[Math.floor(Math.random() * 3)]
+    }
+    setFruits((prev) => [...prev, tempFruit]);
+    setTimeSpentOnPage(timeSpentOnPage+3)
+    setTimeout(() => {
+      setFruits((prevFruits) => {
+        setLivesNum(livesNum-1);
+        return prevFruits.filter((fruit) => fruit.fruitid !== tempFruit.fruitid);
+
+      });
+      console.log("removing self");
+    }, 5000);
+    
+  }
+
+  function removeFruit(fruits,dotPosition) {
+    if (fruits.length != 0) {
+      console.log("in array")
+      const updatedFruits = fruits.filter(fruit => {
+        const distance = Math.sqrt(
+          Math.pow(dotPosition.x - fruit.x, 2) + Math.pow(dotPosition.y - fruit.y, 2)
+        );
+        if (distance < 10) {
+          console.log("cut")
+        }
+        return distance > 10;
+      });
+      setFruits(updatedFruits); 
+      setScore(score+100)
+
+    }
+  }
+
+// Note: wherever dot is rendering, we can also render the fruit
+  
+  // PoseNet setup
   const runPosenet = async () => {
     const net = await posenet.load({
       architecture: "MobileNetV1",
@@ -44,17 +123,8 @@ function App(player, setPlayer) {
     });
     setInterval(() => {
       detect(net);
-    }, 5); 
+    }, 5);
   };
-
-  /*
-  This detect function is called by runPosenet everytime it runs. Running through this function, if it detects any webcamera input, it stores a reference to that video input and its width and height.
-  The pose variable calls the posenet ml model and feeds it the video capture it got. The model does it's things and returns a list of estimated positions of all sorts of body parts and that is stored
-  in const pose. There are many body parts it estimates, but for the sake of this project, rightWrist (and leftWrist) is what we care about. As such, we use the find function to look for the position 
-  of the rightWrist. 
-  Once we find that position, we do some ~math~ to make it fit the confines of our canvas. Then we set our dot position using our handy dandy setDotPosition function. Now that we've done that, we call
-  the drawCanvas function to draw the image with the dot.
-  */
   const detect = async (net) => {
     if (
       typeof webcamRef.current !== "undefined" &&
@@ -64,31 +134,26 @@ function App(player, setPlayer) {
       const videoWidth = video.videoWidth;
       const videoHeight = video.videoHeight;
 
-   
       video.width = videoWidth;
       video.height = videoHeight;
 
       const pose = await net.estimateSinglePose(video);
-      console.log(pose);
 
       const rightWrist = pose.keypoints.find(
         (keypoint) => keypoint.part === "rightWrist"
       );
 
-
       const normalizedX = (rightWrist.position.x / videoWidth) * 100;
       const normalizedY = (rightWrist.position.y / videoHeight) * 100;
-
+      const mirroredX=100-normalizedX;
       setDotPosition({
-        x: Math.min(Math.max(normalizedX, 0), 100), 
-        y: Math.min(Math.max(normalizedY, 0), 100), 
+        x: Math.min(Math.max(mirroredX, 0), 100),
+        y: Math.min(Math.max(normalizedY, 0), 100),
       });
-    
 
       drawCanvas(pose, video, videoWidth, videoHeight, canvasRef);
     }
   };
-
 
   /*
   This function is so important to spit out everything to the user. Basically, it sets the canvas as a 2d surface with the video width and height. It then draws the keypoints that we told it to
@@ -99,20 +164,33 @@ function App(player, setPlayer) {
     canvas.current.width = videoWidth;
     canvas.current.height = videoHeight;
 
-    drawKeypoints(pose["keypoints"], 0.6, ctx); 
+    drawKeypoints(pose["keypoints"], 0.6, ctx);
     drawSkeleton(pose["keypoints"], 0.6, ctx);
   };
 
-  /*Use effect is the love of React/js shenangins. It's job is to call a function everytime it detects the slightest change. So everytime the person moves, useEffect yells at runPosenet
-  to do something (rude ._.)
-  */
   useEffect(() => {
     runPosenet();
-  }, []);
+    const interval = setInterval(generateFruit, 3000); 
+    return () => {
+      clearInterval(interval);   
+    };
+  }, []); 
+  useEffect(() => {
+    const dotCheckInterval = setInterval(() => {
+      if (livesNum == 0) {
+        player.concat({score});
+        setAccuracy(((score/100)/fruitnum));
+        player.concat(accuracy);
+        player.concat(timeSpentOnPage);
+      }
+      removeFruit(fruits, dotPosition);
+    }, 3); 
 
-  /*This is the return function which puts all our logic into action. If you know html/css, a lot of this may look familiar. This is setting up what the user sees. We set up the Webcam 
-  by creating a Webcam object. To reference it in the rest of the code, we will set it to webcamRef we set up earlier. We also give it some styling. Then we set up the canvas which
-  displays our webcam input. We then make a dot and superimpose it on the canvas.*/ 
+    return () => {
+      clearInterval(dotCheckInterval); 
+    };
+  }, [fruits, dotPosition]);
+
   return (
     <div className="App">
       <header className="App-header">
@@ -126,6 +204,7 @@ function App(player, setPlayer) {
             height: "480px",
             border: "2px solid red",
             zIndex: 10,
+            transform: "scaleX(-1)", // Mirror the webcam feed
           }}
         />
         <canvas
@@ -137,6 +216,7 @@ function App(player, setPlayer) {
             width: "640px",
             height: "480px",
             zIndex: 9,
+            transform: "scaleX(-1)",
           }}
         />
         <div
@@ -150,7 +230,24 @@ function App(player, setPlayer) {
             zIndex: 15,
           }}
         >
-          <div
+          {fruits.map((fruit) => (
+            <div
+            style={{
+              position: "absolute",
+              top: `${fruit.y}%`,
+              left: `${fruit.x}%`,
+              zIndex: 12,
+            }}
+          >
+            <fruit.fruitpic
+              style={{
+                width: "100px",
+                height: "100px",
+              }}
+            />
+          </div>
+          ))}
+          {/* <div
             style={{
               position: "absolute",
               width: "10px",
@@ -161,14 +258,39 @@ function App(player, setPlayer) {
               top: `${dotPosition.y}%`,
               transform: "translate(-50%, -50%)",
             }}
-          ></div>
+          ></div> */}
         </div>
+        <Canvas
+          style={{
+            position: "absolute",
+            top: "5%",
+            left: "5%",
+            width: "640px",
+            height: "480px",
+            zIndex: 11,
+            pointerEvents: "none", 
+            }}
+            gl={{ alpha: true, antialias: true }}
+            camera={{ position: [0, 0, 5], fov: 75 }}
+            onCreated={({ gl }) => {
+              gl.setClearColor(0x000000, 0);
+            }}
+        >
+          <ambientLight intensity={1} />
+          <pointLight position={[10, 10, 10]} />
+          <Obj 
+            position={[
+              (dotPosition.x / 100) * 10 - 5, 
+              -(dotPosition.y / 100) * 10 + 5, 
+              0
+            ]}  
+            rotation={[0, 0, Math.PI / 4]}
+            url="/models/hand.glb"
+          />
+        </Canvas>
       </header>
-
     </div>
   );
 }
 
-// Our code doesn't matter if we don't display it, so we package it into a nice little thing that when we say "App, it refers to all this code"
-// (look at index.js to look at more info regarding display and routing)
-export default App;
+export default App; 

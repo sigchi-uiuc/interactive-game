@@ -25,7 +25,6 @@ function Main() {
     ["CrazyCucumber", "200"]
   ]);
   const [player, setPlayer] = useState([]);
-
   return (
     <React.StrictMode>
       <Router>
