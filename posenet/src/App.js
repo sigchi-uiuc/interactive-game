@@ -151,7 +151,7 @@ function App(player, setPlayer) {
             width: "640px",
             height: "480px",
             zIndex: 9,
-            transform: "scaleX(-1)", // Mirror the canvas
+            transform: "scaleX(-1)",
           }}
         />
         <div
@@ -165,7 +165,7 @@ function App(player, setPlayer) {
             zIndex: 15,
           }}
         >
-          <div
+          {/* <div
             style={{
               position: "absolute",
               width: "10px",
@@ -176,26 +176,36 @@ function App(player, setPlayer) {
               top: `${dotPosition.y}%`,
               transform: "translate(-50%, -50%)",
             }}
-          ></div>
+          ></div> */}
         </div>
-          <Canvas style={{ //
+        <Canvas
+          style={{
             position: "absolute",
+            top: "5%",
+            left: "5%",
             width: "640px",
             height: "480px",
-            left: "5%",
-            top: "50%",
+            zIndex: 10,
+            pointerEvents: "none", 
             }}
-            gl={{alpha: false, antialias: true, }} 
-            camera={{ position: [0, 0, 5], fov: 75 }} 
-            onCreated={({ gl }) => {gl.setClearColor(0xffffff); }}>
-            
-            <ambientLight intensity={1} />
-            <pointLight position={[10, 10, 10]} />
-            <Obj 
-              position={[(dotPosition.x / 100) * 10 - 5,-(dotPosition.y / 100) * 10 + 5,0]}  
-              rotation={[0, 0, Math.PI / 4]}
-              url="/models/hand.glb"/>
-          </Canvas>
+            gl={{ alpha: true, antialias: true }}
+            camera={{ position: [0, 0, 5], fov: 75 }}
+            onCreated={({ gl }) => {
+              gl.setClearColor(0x000000, 0);
+            }}
+        >
+          <ambientLight intensity={1} />
+          <pointLight position={[10, 10, 10]} />
+          <Obj 
+            position={[
+              (dotPosition.x / 100) * 10 - 5, 
+              -(dotPosition.y / 100) * 10 + 5, 
+              0
+            ]}  
+            rotation={[0, 0, Math.PI / 4]}
+            url="/models/hand.glb"
+          />
+        </Canvas>
       </header>
     </div>
   );
