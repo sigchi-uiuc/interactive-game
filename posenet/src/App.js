@@ -27,6 +27,7 @@ function App(player, setPlayer) {
   const canvasRef = useRef(null);
   const [dotPosition, setDotPosition] = useState({ x: 50, y: 50 });
 
+
   /*
   Fruit object: stores size (how big the fruit is/difficulty of slicing it) and probability (chance of getting this fruit). 
   Have the score depend on size and probability (fruitPts = (100/size * probability) * 100)
@@ -40,6 +41,11 @@ function App(player, setPlayer) {
 
   const [fruits, setFruits] = useState([]);
   const fruitImages = [bananaPic,strawPic,grapesPic]
+  const [timeSpentOnPage, setTimeSpentOnPage] = useState(0);
+  const [score,setScore] = useState(0);
+  const [livesNum, setLivesNum] = useState(3);
+  const [fruitnum, setFruitnum] = useState(0);
+  const [accuracy,setAccuracy] = useState(0);
 
 
   //const banana = new Fruit(10, 0.5, bananaPic);
@@ -66,33 +72,42 @@ function App(player, setPlayer) {
     checkDot()
     disappear after 3-4 seconds - lose life if fruit disappears 
     */
-
+    console.log("in generateFruit")
+    setFruitnum(fruitnum+1);
     const tempFruit = {
       fruitid: Math.random(),
-      x : Math.floor(Math.random()*50)+25,
-      y : Math.floor(Math.random()*50)+25,
+      x : Math.floor(Math.random()*60)+10,
+      y : Math.floor(Math.random()*60)+10,
       fruitpic: fruitImages[Math.floor(Math.random() * 3)]
     }
     setFruits((prev) => [...prev, tempFruit]);
+    setTimeSpentOnPage(timeSpentOnPage+3)
     setTimeout(() => {
-      setFruits((prev) => prev.filter((fruit) => fruit.fruitid !== tempFruit.fruitid));
-    }, 10000);
+      setFruits((prevFruits) => {
+        setLivesNum(livesNum-1);
+        return prevFruits.filter((fruit) => fruit.fruitid !== tempFruit.fruitid);
+
+      });
+      console.log("removing self");
+    }, 5000);
     
   }
 
   function removeFruit(fruits,dotPosition) {
-    if (Array.isArray(fruits)) {
+    if (fruits.length != 0) {
       console.log("in array")
       const updatedFruits = fruits.filter(fruit => {
         const distance = Math.sqrt(
           Math.pow(dotPosition.x - fruit.x, 2) + Math.pow(dotPosition.y - fruit.y, 2)
         );
-          if (distance <= 1000) {
-          return false;
+        if (distance < 10) {
+          console.log("cut")
         }
-        return true;
+        return distance > 10;
       });
       setFruits(updatedFruits); 
+      setScore(score+100)
+
     }
   }
 
@@ -155,20 +170,26 @@ function App(player, setPlayer) {
 
   useEffect(() => {
     runPosenet();
-    const interval = setInterval(generateFruit, 15000); 
+    const interval = setInterval(generateFruit, 3000); 
     return () => {
       clearInterval(interval);   
     };
   }, []); 
   useEffect(() => {
     const dotCheckInterval = setInterval(() => {
-      removeFruit();
+      if (livesNum == 0) {
+        player.concat({score});
+        setAccuracy(((score/100)/fruitnum));
+        player.concat(accuracy);
+        player.concat(timeSpentOnPage);
+      }
+      removeFruit(fruits, dotPosition);
     }, 3); 
 
     return () => {
       clearInterval(dotCheckInterval); 
     };
-  }, []);
+  }, [fruits, dotPosition]);
 
   return (
     <div className="App">
