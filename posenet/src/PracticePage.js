@@ -48,37 +48,41 @@ function PracticePage() {
 
   <div className="carousel block-c">
   
-    <div id="item1" className="carousel-item div-test">
-    
-      <div className= "main-box">
-        <h1>Welcome to the practice tutorial!</h1>
-        <a href="#item2" onClick={() => changeIndict(1)}>
-          <button className="login-button"> Begin </button>
-        </a>
-      </div>
-      <div>
-
-      </div>
-      <div className= "item1-fruitstyle">
-        <Radish width="30vh" height="30vh" />
-        <HalfApple width="30vh" height="30vh" />
+      <div id="item1" className="carousel-item div-test">
+      <div className="flex items-center justify-center">
+        <Radish width="20vh" height="20vh" />
+        <div className="main-box">
+          <h1>Welcome to the practice tutorial!</h1>
+          <a href="#item2" onClick={() => changeIndict(1)}>
+            <button className="login-button mt-4"> Begin </button>
+          </a>
+        </div>
+        <HalfApple width="20vh" height="20vh" />
       </div>
     </div>
 
+
     <div id="item2" className="carousel-item div-test">
-      <div className= "main-box">
-        <h1>Step One: Slicing Fruit</h1>
-      </div>
-      <Hand height= "50px" width = "50px"></Hand>
-      <HalfApple width = "50px" height= "50px"></HalfApple>
-      <div className= "body-para">
-      <p>Slice fruit in half with</p>
-      <p>vertical hand motions to gain points</p>
-      <Hand height= "50px" width = "50px"></Hand>
-      <HalfPeach width = "50px" height= "50px"></HalfPeach>
-      <a href="#item3" onClick={() => changeIndict(2)}>
-          <button className="login-button"> Next Step </button>
-      </a>
+      <div className="flex items-center justify-center">
+        <Hand height= "30vh" width = "30vh"></Hand>
+        <HalfApple width = "30vh" height= "30vh"></HalfApple>
+        <div>
+          <div className= "main-box">
+            <h1>Step One: Slicing Fruit</h1>
+          </div>
+        
+          <div className= "body-para">
+            <p>Slice fruit in half with</p>
+            <p>vertical hand motions to gain points</p>
+
+            <a href="#item3" onClick={() => changeIndict(2)}>
+                <button className="login-button"> Next Step </button>
+            </a>
+          </div>
+        </div>
+
+        <Hand height= "30px" width = "30px"></Hand>
+        <HalfPeach width = "px" height= "30px"></HalfPeach>
       </div>
     </div>
 
