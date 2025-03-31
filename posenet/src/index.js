@@ -16,13 +16,8 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 function Main() {
   // State needs to be inside a function, so we move it here
   const [playerList, setPlayerList] = useState([
-    ["BerryBlitz", "100"],
-    ["CitrusSquash", "250"],
-    ["MagicalMango", "500"],
-    ["OrangeIsLife", "150"],
-    ["LemonLime", "350"],
-    ["StrawberryMilkshake", "400"],
-    ["CrazyCucumber", "200"]
+    ["player1", "10"],
+    ["player2", "20"]
   ]);
   const [player, setPlayer] = useState([]);
 
@@ -34,7 +29,7 @@ function Main() {
           <Route path="/practice" element={<PracticePage/>} />
           <Route path="/game" element={<App player={player} setPlayer={setPlayer}/>} />
           <Route path="/scoreboard" element={<Scoreboard player={player} setPlayer={setPlayer} playerList={playerList} setPlayerList={setPlayerList}/>} />
-          <Route path="/leaderboard" element={<Leaderboard player={player} setPlayer={setPlayer} playerList={playerList} setPlayerList={setPlayerList}/>} />
+          <Route path="/leaderboard" element={<Leaderboard />} />
         </Routes>
       </Router>
     </React.StrictMode>
