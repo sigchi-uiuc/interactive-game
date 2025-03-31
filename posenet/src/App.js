@@ -265,8 +265,8 @@ function App(player, setPlayer) {
         <Canvas
           style={{
             position: "absolute",
-            top: "5%",
-            left: "5%",
+            top: "25%",
+            left: "30%",
             width: "640px",
             height: "480px",
             zIndex: 11,
