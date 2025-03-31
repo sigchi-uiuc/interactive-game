@@ -27,9 +27,9 @@ html {
 
 h1 {
   display: block;
-  font-size: 2em;
-  margin-top: 0.67em;
-  margin-bottom: 0.67em;
+  font-size:6vmin;
+  margin-top: 2vmin;
+  margin-bottom: 2vmin;
   margin-left: 0;
   margin-right: 0;
   font-weight: bold;
@@ -38,7 +38,7 @@ h1 {
 
 p {
     color: #198155;
-    font-size: 1em;
+    font-size: 3vmin;
     font-family: 'Inter Regular', sans-serif;
 }
 
@@ -99,6 +99,14 @@ p {
     padding-top: 4.6em;
 }
 
+.more-space {
+    padding-top: 40vh;
+    width: 60%;
+    margin: auto;
+    text-align: center;
+    display: block;
+}
+
 .body-para {
     padding-top: 1.7em;
     width: 60%;
@@ -121,10 +129,26 @@ footer {
 
 .image {
     position: absolute;
+    
+}
+
+.small {
     width: 4.5em;
     height: 4.5em;
 }
+.medium {
+    width: 6em;
+    height: 6em;
+}
+
+.large {
+    width: 9em;
+    height: 9em;
+}
 /* Standard Positionings */
+.tenth0-h {
+    top: 5vh;
+}
 .tenth1-h {
     top: 15vh;
 }
@@ -149,8 +173,8 @@ footer {
 .tenth8-h {
     top: 75vh;
 }
-.tenthlost-h {
-    top: 90vh;
+.tenth9-h {
+    top: 80vh;
 }
 .tenth1-w {
     left: 15vw;
@@ -178,4 +202,28 @@ footer {
 }
 .tenth9-w {
     left: 85vw;
+}
+/* Slide 1 Positionings */
+.tenth450-w {
+    left: 45vw;
+}
+
+/* Slide 3 Positionings */
+.line-tenth {
+    top: 55vh;
+    left: 73vw;
+}
+
+/* Slide 4 Positionings */
+.tenth525-h {
+    top: 52.5vh;
+}
+.tenth275-w {
+    left: 25vw;
+}
+.tenth550-w {
+    left: 56vw;
+}
+.tenth650-w {
+    left: 63vw;
 }

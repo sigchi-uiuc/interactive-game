@@ -61,50 +61,58 @@ function PracticePage() {
   }
   const ImagesA =
   <div className="image-container">
-    <CleaverB className= "image tenth5-h tenth5-w"></CleaverB>
-    <HalfPeach className= "image tenth6-h tenth4-w"></HalfPeach>
-    <HalfPeach className= "image tenth7-h tenth6-w"></HalfPeach>
+    <CleaverB className= "image medium tenth6-h tenth450-w"></CleaverB>
+    <HalfPeach className= "image small tenth7-h tenth4-w -rotate-45"></HalfPeach>
+    <HalfPeach className= "image small tenth8-h tenth5-w rotate-y-45"></HalfPeach>
   </div>
 
   const ImagesB =
   <div className="image-container">
-    <Hand className= "image tenth4-h tenth5-w"></Hand>
-    <HalfPeach className= "image tenth4-h tenth6-w"></HalfPeach>
-    <Hand className= "image tenth7-h tenth2-w"></Hand>
-    <HalfApple className= "image tenth7-h tenth3-w"></HalfApple>
+    <Hand className= "image large tenth3-h tenth6-w rotate-90"></Hand>
+    <HalfPeach className= "image small tenth4-h tenth7-w"></HalfPeach>
+    <Hand className= "image large tenth7-h tenth2-w"></Hand>
+    <HalfApple className= "image medium tenth7-h tenth3-w"></HalfApple>
   </div>
 
   const ImagesC =
   <div className="image-container">
-    <Plum className= "image tenth1-h tenth2-w"></Plum>
-    <Strawberry className= "image tenth2-h tenth8-w"></Strawberry>
-    <Radish className= "image tenth3-h tenth8-w"></Radish>
-    <Grape className= "image tenth5-h tenth1-w"></Grape>
-    <CleaverA className= "image tenth5-h tenth7-w"></CleaverA>
-    <Banana className= "image tenth5-h tenth8-w"></Banana>
-    <HalfApple className= "image tenth7-h tenth3-w"></HalfApple>
-    <HalfApple className= "image tenth8-h tenth1-w"></HalfApple>
+    <p className= "image line-tenth">---------------------</p>
+    <Plum className= "image small tenth1-h tenth2-w"></Plum>
+    <Strawberry className= "image small tenth2-h tenth8-w"></Strawberry>
+    <Radish className= "image small tenth3-h tenth7-w"></Radish>
+    <Grape className= "image small tenth7-h tenth8-w"></Grape>
+    <CleaverA className= "image small tenth5-h tenth7-w"></CleaverA>
+    <Banana className= "image small tenth5-h tenth8-w"></Banana>
+    <HalfApple className= "image small tenth6-h tenth4-w rotate-45"></HalfApple>
+    <HalfApple className= "image small tenth8-h tenth1-w"></HalfApple>
   </div>
 
   const ImagesD =
     <div className="image-container">
-      <Radish className= "image tenth3-h tenth2-w"></Radish>
-      <TomatoCarrot className= "image tenth3-h tenth3-w"></TomatoCarrot>
-      <Plum className= "image tenth5-h tenth4-w"></Plum>
-      <Strawberry className= "image tenth5-h tenth5-w"></Strawberry>
-      <Banana className= "image tenth5-h tenth6-w"></Banana>
+      <div className= "main-box image tenth4-h tenth2-w">
+        <p>Vegetables immediately end the game</p>
+      </div>
+      <div className= "main-box image tenth6-h tenth5-w">
+        <p>Slicing fruit combos award extra points!</p>
+      </div>
+      <Radish className= "image medium tenth3-h tenth275-w"></Radish>
+      <TomatoCarrot className= "image medium tenth3-h tenth3-w"></TomatoCarrot>
+      <Plum className= "image medium tenth5-h tenth550-w"></Plum>
+      <Banana className= "image medium tenth5-h tenth650-w"></Banana>
+      <Strawberry className= "image small tenth525-h tenth6-w"></Strawberry>
     </div>
 
   const ImagesE =
     <div className="image-container">
-        <Grape className= "image tenth1-h tenth8-w"></Grape>
-        <Banana className= "image tenth1-h tenth6-w"></Banana>
-        <Strawberry className= "image tenth2-h tenth2-w"></Strawberry>
-        <HalfApple className= "image tenth6-h tenth2-w"></HalfApple>
-        <HalfApple className= "image tenth8-h tenth8-w"></HalfApple>
-        <Radish className= "image tenth8-h tenth1-w"></Radish>
-        <HalfPeach className= "image tenth6-h tenth8-w"></HalfPeach>
-        <Plum className= "image tenth7-h tenth4-w"></Plum>
+        <Grape className= "image small tenth1-h tenth8-w"></Grape>
+        <Banana className= "image medium tenth0-h tenth6-w"></Banana>
+        <Strawberry className= "image small tenth2-h tenth2-w"></Strawberry>
+        <HalfApple className= "image small tenth6-h tenth2-w"></HalfApple>
+        <HalfApple className= "image medium tenth8-h tenth8-w"></HalfApple>
+        <Radish className= "image medium tenth9-h tenth1-w"></Radish>
+        <HalfPeach className= "image small tenth4-h tenth7-w"></HalfPeach>
+        <Strawberry className= "image small tenth6-h tenth6-w"></Strawberry>
+        <Plum className= "image medium tenth7-h tenth4-w"></Plum>
     </div>
 
   return (
@@ -138,12 +146,11 @@ function PracticePage() {
 
     <div id="item3" className="carousel-item div-test">
      <div className= "main-box">
-        <h1>Step Two: When To Slice</h1>
+        <h1>Step Two: Points and Health</h1>
      </div>
      <div className= "body-para">
-      <p>Once the fruit passing the designated cutting area, slice the fruit!</p>
-      <p>**Example: Slice Vertically Here**</p>
-      <p>------------------------------------------------</p>
+      <p>Beware!</p>
+      <p>Missing a fruit three times results in a game over.</p>
       <a href="#item4" onClick={() => changeIndict(3)}>
         <button className="login-button"> Next Step </button>
       </a>
@@ -154,13 +161,7 @@ function PracticePage() {
      <div className= "main-box">
         <h1>Step Three: Tips</h1>
      </div>
-     <div className= "body-para">
-     <div className= "main-box">
-        <p>Vegetables immediately end the game</p>
-      </div>
-      <div className= "main-box">
-        <p>Slicing fruit combos award extra points!</p>
-      </div>
+     <div className= "more-space">
       <a href="#item5" onClick={() => changeIndict(4)}>
         <button className="login-button"> Next Step </button>
       </a>
