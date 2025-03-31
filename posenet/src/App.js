@@ -4,6 +4,8 @@ import * as posenet from "@tensorflow-models/posenet";
 import Webcam from "react-webcam";
 import { drawKeypoints, drawSkeleton } from "./utilities";
 import { useNavigate } from "react-router-dom";
+import { ReactComponent as Skull } from "./Images/skull_symbol.svg";
+import { ReactComponent as Cleaver } from "./Images/cleaver_3D.svg";
 import { ReactComponent as bananaPic} from "./fruitPics/banana.svg"
 import { ReactComponent as strawPic} from "./fruitPics/strawberry.svg"
 import { ReactComponent as grapesPic} from "./fruitPics/grapes.svg"
@@ -194,12 +196,12 @@ function App(player, setPlayer) {
   return (
     <div className="App">
       <header className="App-header">
-        <Webcam
+        <Webcam   /* Nithin's notes: THE WEBCAM WINDOW (?) */
           ref={webcamRef}
           style={{
             position: "absolute",
-            top: "5%",
-            left: "5%",
+            top: "25%",
+            left: "30%",
             width: "640px",
             height: "480px",
             border: "2px solid red",
@@ -207,12 +209,12 @@ function App(player, setPlayer) {
             transform: "scaleX(-1)", // Mirror the webcam feed
           }}
         />
-        <canvas
+        <canvas   
           ref={canvasRef}
-          style={{
+          style={{  /* Nithin's notes: THE WEBCAM WINDOW (?) */
             position: "absolute",
-            top: "5%",
-            left: "5%",
+            top: "25%",
+            left: "30%",
             width: "640px",
             height: "480px",
             zIndex: 9,
@@ -220,13 +222,13 @@ function App(player, setPlayer) {
           }}
         />
         <div
-          style={{
+          style={{  /* Nithin's notes: THE WEBCAM BORDER */
             position: "absolute",
-            top: "5%",
-            left: "5%",
+            top: "25%",
+            left: "30%",
             width: "640px",
             height: "480px",
-            border: "2px solid black",
+            border: "10px solid black",
             zIndex: 15,
           }}
         >
@@ -289,6 +291,60 @@ function App(player, setPlayer) {
           />
         </Canvas>
       </header>
+      <div id="rectangle"
+        style={{
+          position: "relative",
+          top: "81px",
+          left: "896px",
+          width: "487px",
+          height: "142px",
+          backgroundColor: "#C29F8C",
+          border: "8px solid black",
+          borderRadius: "26px",
+          zIndex: 9,
+      }}>
+        <Skull style={{ 
+          position: "absolute",
+          top: "3%", 
+          left: "10%", 
+          width: "100px", 
+          height: "105.26px" 
+        }} />
+        <Skull style={{ 
+          position: "absolute",
+          top: "3%", 
+          left: "40%", 
+          opacity: "0.3",
+          width: "100px", 
+          height: "105.26px" 
+        }} />
+        <Skull style={{ 
+          position: "absolute",
+          top: "3%", 
+          left: "70%",
+          opacity: "0.3",
+          width: "100px", 
+          height: "105.26px" 
+        }} />
+      </div>
+      <Cleaver style={{ 
+          position: "absolute",
+          top: "5vh", 
+          left: "6vw", 
+          width: "172", 
+          height: "193px" 
+        }} />
+      <div style={{ 
+        position: "absolute",
+        top: "6vh", 
+        left: "17vw",
+        fontSize: "120px",
+        fontWeight: "400",
+        color: "#2F6B48",
+        textShadow: "3px 3px 0px #A6786E",
+        fontFamily: "'Saira Stencil One', sans-serif",
+      }}> 000
+      </div>
     </div>
   );
 }
