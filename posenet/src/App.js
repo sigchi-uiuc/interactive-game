@@ -4,10 +4,10 @@ import * as posenet from "@tensorflow-models/posenet";
 import Webcam from "react-webcam";
 import { drawKeypoints, drawSkeleton } from "./utilities";
 import { useNavigate } from "react-router-dom";
-//import bananaPic from "./fruitPics./banana.svg";
-//import strawPic from "./fruitPics./strawberry.svg";
-//import grapesPic from "./fruitPics./grapes.svg";
-//import applePic from "./fruitPics./apple.svg";
+import { ReactComponent as bananaPic} from "./fruitPics/banana.svg"
+import { ReactComponent as strawPic} from "./fruitPics/strawberry.svg"
+import { ReactComponent as grapesPic} from "./fruitPics/grapes.svg"
+
 
 import * as THREE from "three"; // Import Three.js
 import "./App.css";
@@ -38,6 +38,10 @@ function App(player, setPlayer) {
     this.location = {x: null, y: null} ; // pair for location
   }
 
+  const [fruits, setFruits] = useState([]);
+  const fruitImages = [bananaPic,strawPic,grapesPic]
+
+
   //const banana = new Fruit(10, 0.5, bananaPic);
   //const grapes = new Fruit(20, 0.3, grapesPic);
   // const apple = new Fruit(5, 0.2, applePic);
@@ -62,7 +66,34 @@ function App(player, setPlayer) {
     checkDot()
     disappear after 3-4 seconds - lose life if fruit disappears 
     */
+
+    const tempFruit = {
+      fruitid: Math.random(),
+      x : Math.floor(Math.random()*50)+25,
+      y : Math.floor(Math.random()*50)+25,
+      fruitpic: fruitImages[Math.floor(Math.random() * 3)]
+    }
+    setFruits((prev) => [...prev, tempFruit]);
+    setTimeout(() => {
+      setFruits((prev) => prev.filter((fruit) => fruit.fruitid !== tempFruit.fruitid));
+    }, 10000);
     
+  }
+
+  function removeFruit(fruits,dotPosition) {
+    if (Array.isArray(fruits)) {
+      console.log("in array")
+      const updatedFruits = fruits.filter(fruit => {
+        const distance = Math.sqrt(
+          Math.pow(dotPosition.x - fruit.x, 2) + Math.pow(dotPosition.y - fruit.y, 2)
+        );
+          if (distance <= 1000) {
+          return false;
+        }
+        return true;
+      });
+      setFruits(updatedFruits); 
+    }
   }
 
 // Note: wherever dot is rendering, we can also render the fruit
@@ -124,6 +155,19 @@ function App(player, setPlayer) {
 
   useEffect(() => {
     runPosenet();
+    const interval = setInterval(generateFruit, 15000); 
+    return () => {
+      clearInterval(interval);   
+    };
+  }, []); 
+  useEffect(() => {
+    const dotCheckInterval = setInterval(() => {
+      removeFruit();
+    }, 3); 
+
+    return () => {
+      clearInterval(dotCheckInterval); 
+    };
   }, []);
 
   return (
@@ -165,6 +209,23 @@ function App(player, setPlayer) {
             zIndex: 15,
           }}
         >
+          {fruits.map((fruit) => (
+            <div
+            style={{
+              position: "absolute",
+              top: `${fruit.y}%`,
+              left: `${fruit.x}%`,
+              zIndex: 12,
+            }}
+          >
+            <fruit.fruitpic
+              style={{
+                width: "100px",
+                height: "100px",
+              }}
+            />
+          </div>
+          ))}
           {/* <div
             style={{
               position: "absolute",
@@ -185,7 +246,7 @@ function App(player, setPlayer) {
             left: "5%",
             width: "640px",
             height: "480px",
-            zIndex: 10,
+            zIndex: 11,
             pointerEvents: "none", 
             }}
             gl={{ alpha: true, antialias: true }}
