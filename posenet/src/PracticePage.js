@@ -205,7 +205,7 @@ function PracticePage() {
 
     <div id="item5" className="carousel-item div-test">
       <div className= "main-box">
-        <h1>Congratualations! You've completed the practice tutorial!</h1>
+        <h1>Congratulations! You've completed the practice tutorial!</h1>
         <span>
           <button className="login-button" onClick={() => navigate("/game")}> Start Game </button>
         </span>
