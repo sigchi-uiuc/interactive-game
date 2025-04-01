@@ -13,6 +13,8 @@ import { ReactComponent as Banana } from "./PracticeImportFiles/Images/banana.sv
 import { ReactComponent as Hand } from "./PracticeImportFiles/Images/hand.svg";
 import { ReactComponent as CleaverA } from "./PracticeImportFiles/Images/cleaver1.svg";
 import { ReactComponent as CleaverB } from "./PracticeImportFiles/Images/cleaver2.svg";
+import { ReactComponent as Skull } from "./PracticeImportFiles/Images/skull.svg";
+
 import { ReactComponent as TomatoCarrot } from "./PracticeImportFiles/Images/tomatocarrot.svg";
 import './practicepage.css';
 
@@ -61,36 +63,63 @@ function PracticePage() {
   }
   const ImagesA =
   <div className="image-container">
-    <CleaverB className= "image medium tenth6-h tenth450-w"></CleaverB>
-    <HalfPeach className= "image small tenth7-h tenth4-w -rotate-45"></HalfPeach>
-    <HalfPeach className= "image small tenth8-h tenth5-w rotate-y-45"></HalfPeach>
+    <CleaverB className= "image small tenth4-h tenth8-w"></CleaverB>
+    <CleaverB className= "image small tenth1-h tenth2-w rotate-90"></CleaverB>
+    <Grape className= "image small tenth1-h tenth8-w"></Grape>
+    <Banana className= "image medium tenth0-h tenth6-w"></Banana>
+    <Strawberry className= "image small tenth2-h tenth1-w"></Strawberry>
+    <HalfPeach className= "image small tenth7-h tenth1-w -rotate-45"></HalfPeach>
+    <HalfApple className= "image medium tenth8-h tenth8-w rotate-45"></HalfApple>
+    <Strawberry className= "image small tenth6-h tenth650-w rotate-45"></Strawberry>
+    <Plum className= "image medium tenth7-h tenth3-w"></Plum>
+    <Grape className= "image small tenth4-h tenth275-w -rotate-90"></Grape>
+    <TomatoCarrot className= "image small tenth5-h tenth9-w"></TomatoCarrot>
+    <Banana className= "image small tenth6-h tenth4-w -rotate-45"></Banana>
+    <Radish className= "image small tenth0-h tenth4-w rotate-45"></Radish>
   </div>
 
   const ImagesB =
   <div className="image-container">
-    <Hand className= "image large tenth3-h tenth6-w rotate-90"></Hand>
-    <HalfPeach className= "image small tenth4-h tenth7-w"></HalfPeach>
-    <Hand className= "image large tenth7-h tenth2-w"></Hand>
-    <HalfApple className= "image medium tenth7-h tenth3-w"></HalfApple>
+    <p className= "image line-tenth">---------------------</p>
+    <p className="image tenth350-h tenth3-w">Slice fruit in half with</p>
+    <p className="image tenth650-h tenth450-w">vertical hand motions to gain points.</p>
+    <CleaverA className= "image small tenth5-h tenth4-w"></CleaverA>
+    <Banana className= "image small tenth5-h tenth5-w"></Banana>
+    <Hand className= "image large tenth250-h tenth6-w rotate-90"></Hand>
+    <HalfPeach className= "image small tenth5-h tenth7-w"></HalfPeach>
+    <Hand className= "image large tenth6-h tenth2-w"></Hand>
+    <HalfApple className= "image medium tenth6-h tenth3-w"></HalfApple>
   </div>
-
+/* STOP */
+/* MAKE EDITS TO SCORING SYSTEM IN BLANKS*/
   const ImagesC =
   <div className="image-container">
-    <p className= "image line-tenth">---------------------</p>
+    <div className= "image tenth4-h tenth2-w">
+      <h2>*Insert Scoring System*</h2>
+      <ul>
+        <li>Blank</li>
+        <li>Blank</li>
+        <li>Blank</li>
+      </ul>
+     </div>
+    <div id="skully" className= "image main-box tenth5-h tenth5-w">
+      <h2 id="scary">BEWARE!!</h2>
+      <p id="scary">Missing a fruit three times results in a game over.</p>
+     </div>
     <Plum className= "image small tenth1-h tenth2-w"></Plum>
     <Strawberry className= "image small tenth2-h tenth8-w"></Strawberry>
-    <Radish className= "image small tenth3-h tenth7-w"></Radish>
+    <Skull className= "image micro tenth525-h tenth525-w"></Skull>
+    <Skull className= "image micro tenth525-h tenth7-w"></Skull>
+    <Radish className= "image small tenth3-h tenth650-w"></Radish>
     <Grape className= "image small tenth7-h tenth8-w"></Grape>
-    <CleaverA className= "image small tenth5-h tenth7-w"></CleaverA>
-    <Banana className= "image small tenth5-h tenth8-w"></Banana>
     <HalfApple className= "image small tenth6-h tenth4-w rotate-45"></HalfApple>
-    <HalfApple className= "image small tenth8-h tenth1-w"></HalfApple>
+    <TomatoCarrot className= "image small tenth8-h tenth1-w -rotate-45"></TomatoCarrot>
   </div>
 
   const ImagesD =
     <div className="image-container">
       <div className= "main-box image tenth4-h tenth2-w">
-        <p>Vegetables immediately end the game</p>
+        <p>Vegetables immediately end the game.</p>
       </div>
       <div className= "main-box image tenth6-h tenth5-w">
         <p>Slicing fruit combos award extra points!</p>
@@ -106,13 +135,18 @@ function PracticePage() {
     <div className="image-container">
         <Grape className= "image small tenth1-h tenth8-w"></Grape>
         <Banana className= "image medium tenth0-h tenth6-w"></Banana>
-        <Strawberry className= "image small tenth2-h tenth2-w"></Strawberry>
-        <HalfApple className= "image small tenth6-h tenth2-w"></HalfApple>
-        <HalfApple className= "image medium tenth8-h tenth8-w"></HalfApple>
-        <Radish className= "image medium tenth9-h tenth1-w"></Radish>
+        <Strawberry className= "image small tenth2-h tenth1-w"></Strawberry>
+        <HalfApple className= "image small tenth6-h tenth0-w"></HalfApple>
+        <HalfApple className= "image medium tenth8-h tenth8-w rotate-45"></HalfApple>
+        <Radish className= "image small tenth9-h tenth3-w"></Radish>
         <HalfPeach className= "image small tenth4-h tenth7-w"></HalfPeach>
-        <Strawberry className= "image small tenth6-h tenth6-w"></Strawberry>
-        <Plum className= "image medium tenth7-h tenth4-w"></Plum>
+        <Strawberry className= "image small tenth6-h tenth650-w rotate-45"></Strawberry>
+        <Plum className= "image medium tenth7-h tenth450-w"></Plum>
+        <Grape className= "image small tenth350-h tenth275-w -rotate-90"></Grape>
+        <TomatoCarrot className= "image small tenth5-h tenth9-w"></TomatoCarrot>
+        <Banana className= "image small tenth6-h tenth2-w -rotate-45"></Banana>
+        <Radish className= "image small tenth0-h tenth4-w rotate-45"></Radish>
+        <Banana className= "image small tenth7-h tenth7-w -rotate-90"></Banana>
     </div>
 
   return (
@@ -124,8 +158,6 @@ function PracticePage() {
   <div className="carousel block-c">
   
     <div id="item1" className="carousel-item div-test">
-    <Radish height= "50px" width = "50px"></Radish>
-    <HalfApple width = "50px" height= "50px"></HalfApple>
       <div className= "main-box">
         <h1>Welcome to the practice tutorial!</h1>
         <a href="#item2" onClick={() => changeIndict(1)}>
@@ -142,26 +174,18 @@ function PracticePage() {
       <div className= "main-box">
         <h1>Step One: Slicing Fruit</h1>
       </div>
-      <Hand height= "50px" width = "50px"></Hand>
-      <HalfApple width = "50px" height= "50px"></HalfApple>
-      <div className= "body-para">
-      <p>Slice fruit in half with</p>
-      <p>vertical hand motions to gain points</p>
-      <Hand height= "50px" width = "50px"></Hand>
-      <HalfPeach width = "50px" height= "50px"></HalfPeach>
+      <div className= "more-space">
       <a href="#item3" onClick={() => changeIndict(2)}>
-          <button className="login-button"> Next Step </button>
+        <button className="login-button"> Next Step </button>
       </a>
       </div>
     </div>
 
     <div id="item3" className="carousel-item div-test">
      <div className= "main-box">
-        <h1>Step Two: Points and Health</h1>
+        <h1>Step Two: Scoring</h1>
      </div>
-     <div className= "body-para">
-      <p>Beware!</p>
-      <p>Missing a fruit three times results in a game over.</p>
+     <div className= "more-space">
       <a href="#item4" onClick={() => changeIndict(3)}>
         <button className="login-button"> Next Step </button>
       </a>

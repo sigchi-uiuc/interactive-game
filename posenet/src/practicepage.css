@@ -5,6 +5,13 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Inter Bold';
+    src: url('./PracticeImportFiles/Inter-VariableFont_opsz,wght.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
 body {
     background-color: #ECFCE5;
     color: black;
@@ -36,6 +43,20 @@ h1 {
   font-family: 'Inter Regular', sans-serif;
 }
 
+h2 {
+    color: #000000;
+    font-size: 4vmin;
+    font-family: 'Inter Bold', sans-serif;
+    margin-bottom: 1.5vmin;
+}
+
+ul {
+    color: #198155;
+    list-style-type: circle;
+    font-size: 3vmin;
+    font-family: 'Inter Regular', sans-serif;
+    padding-left: 5vw;
+}
 p {
     color: #198155;
     font-size: 3vmin;
@@ -115,11 +136,19 @@ p {
     display: block;
 }
 
+#skully {
+    background-color:rgb(113, 1, 1);
+    max-width: 25vw;
+}
+
+#scary {
+    color: rgb(255, 255, 255);
+}
+
 footer {
     box-shadow: 0 50vh 0 50vh #ECFCE5;
   }
 
-<<<<<<< HEAD
 /* Positioning */
 .image-container {
     position: relative;
@@ -132,7 +161,10 @@ footer {
     position: absolute;
     
 }
-
+.micro {
+    width: 2em;
+    height: 2em;
+}
 .small {
     width: 4.5em;
     height: 4.5em;
@@ -143,9 +175,10 @@ footer {
 }
 
 .large {
-    width: 9em;
-    height: 9em;
+    width: 13em;
+    height: 13em;
 }
+
 /* Standard Positionings */
 .tenth0-h {
     top: 5vh;
@@ -177,8 +210,11 @@ footer {
 .tenth9-h {
     top: 80vh;
 }
+.tenth0-w {
+    left: 5vw;
+}
 .tenth1-w {
-    left: 15vw;
+    left: 10vw;
 }
 .tenth2-w {
     left: 20vw;
@@ -209,12 +245,24 @@ footer {
     left: 45vw;
 }
 
-/* Slide 3 Positionings */
+/* Slide 2 Positionings */
 .line-tenth {
     top: 55vh;
-    left: 73vw;
+    left: 45vw;
 }
-
+.tenth250-h {
+    top: 25vh;
+}
+.tenth350-h {
+    top: 35vh;
+}
+.tenth650-h {
+    top: 65vh;
+}
+/* Slide 3 Positionings */
+.tenth525-w {
+    left: 51vw;
+}
 /* Slide 4 Positionings */
 .tenth525-h {
     top: 52.5vh;
@@ -227,15 +275,4 @@ footer {
 }
 .tenth650-w {
     left: 63vw;
-=======
-.item1-fruitstyle {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 10px;
-}
-
-.rowstyle {
-    
->>>>>>> ab2d28cfd262c52ce91f4ab276f827fa7f6f8ab5
 }
