@@ -7,18 +7,19 @@ import React from "react";
  import { ReactComponent as KnifeLeft } from "./LoginPageImages/loginknife2.svg";
  import {ReactComponent as KnifeRight} from "./LoginPageImages/loginknife1.svg";
 
-function LandingPage() {
+ import './login.css';
+
+function LandingPage({player, setPlayer}) {
    /*
    Keeping with our spy analogy, const navigate is the phoneline LandingPage will use to transfer missions to other agents. useNavigate() is the company they 
    have contracted to run these services.
    */
-   const [player, setPlayer] = useState();
    const navigate = useNavigate();
  
    // handle button click (start game) - The function name can be changed
    const startGame = () => {
      if (player) {
-       navigate("/practice", { state: { player } });
+       navigate("/practice");
      } else {
        alert("Please enter a username to start the game.");
      }
@@ -26,17 +27,12 @@ function LandingPage() {
  
    // need to implement return part
    return (
-     <div className="flex flex-col items-center justify-center h-screen bg-green-600"> 
-       <h1 className="text-6xl font-bold text-primary mb-8 text-white">
-       Kitchen Ninja
-       </h1>
+    //  <div className="flex flex-col items-center justify-center h-screen bg-green-600"> 
+    <div className="login-page"> 
+       <div className="login-title">Kitchen Ninja</div>
  
-       <div className="card bg-green-400 shadow-xl p-8 flex flex-col items-center gap-4">
-         <input
-           type="text"
-           className="input input-bordered w-80 text-white"
-           placeholder="Enter your username"
-           value={player}
+       <div className="login-card">
+         <input type="text" className="login-input" placeholder="Enter your username"
            onChange={(e) => setPlayer(e.target.value)}
          />
  
@@ -47,6 +43,8 @@ function LandingPage() {
        <Plum width = "35vh" height= "35h" className="absolute top-30 left-40"></Plum>
        <Grape width = "25vh" height = "25vh" className="absolute bottom-25 right-40"></Grape>
        <Strawberry width = "25vh" height = "25vh" className="absolute bottom-5 right- 30"></Strawberry>
+       
+       
        {/* <KnifeRight width="30vh" height="30vh" className="absolute top-10 right-110"></KnifeRight>     
        <KnifeLeft width = "30vh" height = "30vh" className="absolute top-10 left-110"></KnifeLeft> */}
  
