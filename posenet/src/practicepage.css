@@ -1,0 +1,278 @@
+@font-face {
+    font-family: 'Inter Regular';
+    src: url('./PracticeImportFiles/Inter-VariableFont_opsz,wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Inter Bold';
+    src: url('./PracticeImportFiles/Inter-VariableFont_opsz,wght.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+body {
+    background-color: #ECFCE5;
+    color: black;
+    margin: 0;
+    height: 100%;
+  }
+
+html {
+    background-color: #ECFCE5;
+    color: black;
+    margin: 0;
+    height: 100%;
+    font-size: 3vmin;
+  }
+
+.back {
+    background-color: #ECFCE5;
+    display: block;
+}
+
+h1 {
+  display: block;
+  font-size:6vmin;
+  margin-top: 2vmin;
+  margin-bottom: 2vmin;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+  font-family: 'Inter Regular', sans-serif;
+}
+
+h2 {
+    color: #000000;
+    font-size: 4vmin;
+    font-family: 'Inter Bold', sans-serif;
+    margin-bottom: 1.5vmin;
+}
+
+ul {
+    color: #198155;
+    list-style-type: circle;
+    font-size: 3vmin;
+    font-family: 'Inter Regular', sans-serif;
+    padding-left: 5vw;
+}
+p {
+    color: #198155;
+    font-size: 3vmin;
+    font-family: 'Inter Regular', sans-serif;
+}
+
+.login-button {
+    background-color: #D5EBCB;
+    border: solid 3px #198155;
+    border-radius: 10px;
+    margin-top: 2.5em;
+    padding: 5px 15px;
+    font-family: 'Inter Regular', sans-serif;
+    color: #198155;
+}
+
+.login-button:hover {
+    background-color: #198155;
+    color: white;
+  }
+
+.home-button {
+    display: block;
+    border: solid 3px #000000;
+    background-color: #727272;
+    border-radius: 0.6em;
+    padding: 1em;
+    color: white;
+    -webkit-text-stroke: 0.25px #BE8989;
+    position: fixed;
+    font-family: 'Inter Regular', sans-serif;
+    right: 5px;
+}
+
+.home-button:hover {
+    background-color: rgb(75, 74, 74);
+  }
+
+.div-test {
+    width: 100%;
+    display: block;
+}
+
+.table-of-contents {
+    position: absolute;
+    bottom : 5px;
+}
+
+.main-box {
+    background-color: white;
+    display: block;
+    padding: 1.2em;
+    border-radius: 1.4em;
+    text-align: center;
+    margin:auto;
+    width: fit-content;
+    max-width: 35vw;
+}
+
+.block-c {
+    padding-top: 4.6em;
+}
+
+.more-space {
+    padding-top: 40vh;
+    width: 60%;
+    margin: auto;
+    text-align: center;
+    display: block;
+}
+
+.body-para {
+    padding-top: 1.7em;
+    width: 60%;
+    margin: auto;
+    text-align: center;
+    display: block;
+}
+
+#skully {
+    background-color:rgb(113, 1, 1);
+    max-width: 25vw;
+}
+
+#scary {
+    color: rgb(255, 255, 255);
+}
+
+footer {
+    box-shadow: 0 50vh 0 50vh #ECFCE5;
+  }
+
+/* Positioning */
+.image-container {
+    position: relative;
+    width: 100%;
+    display: block;
+
+}
+
+.image {
+    position: absolute;
+    
+}
+.micro {
+    width: 2em;
+    height: 2em;
+}
+.small {
+    width: 4.5em;
+    height: 4.5em;
+}
+.medium {
+    width: 6em;
+    height: 6em;
+}
+
+.large {
+    width: 13em;
+    height: 13em;
+}
+
+/* Standard Positionings */
+.tenth0-h {
+    top: 5vh;
+}
+.tenth1-h {
+    top: 15vh;
+}
+.tenth2-h {
+    top: 20vh;
+}
+.tenth3-h {
+    top: 30vh;
+}
+.tenth4-h {
+    top: 40vh;
+}
+.tenth5-h {
+    top: 50vh;
+}
+.tenth6-h {
+    top: 60vh;
+}
+.tenth7-h {
+    top: 70vh;
+}
+.tenth8-h {
+    top: 75vh;
+}
+.tenth9-h {
+    top: 80vh;
+}
+.tenth0-w {
+    left: 5vw;
+}
+.tenth1-w {
+    left: 10vw;
+}
+.tenth2-w {
+    left: 20vw;
+}
+.tenth3-w {
+    left: 30vw;
+}
+.tenth4-w {
+    left: 40vw;
+}
+.tenth5-w {
+    left: 50vw;
+}
+.tenth6-w {
+    left: 60vw;
+}
+.tenth7-w {
+    left: 70vw;
+}
+.tenth8-w {
+    left: 80vw;
+}
+.tenth9-w {
+    left: 85vw;
+}
+/* Slide 1 Positionings */
+.tenth450-w {
+    left: 45vw;
+}
+
+/* Slide 2 Positionings */
+.line-tenth {
+    top: 55vh;
+    left: 45vw;
+}
+.tenth250-h {
+    top: 25vh;
+}
+.tenth350-h {
+    top: 35vh;
+}
+.tenth650-h {
+    top: 65vh;
+}
+/* Slide 3 Positionings */
+.tenth525-w {
+    left: 51vw;
+}
+/* Slide 4 Positionings */
+.tenth525-h {
+    top: 52.5vh;
+}
+.tenth275-w {
+    left: 25vw;
+}
+.tenth550-w {
+    left: 56vw;
+}
+.tenth650-w {
+    left: 63vw;
+}

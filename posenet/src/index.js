@@ -20,7 +20,6 @@ function Main() {
     ["player2", "20"]
   ]);
   const [player, setPlayer] = useState([]);
-
   return (
     <React.StrictMode>
       <Router>
