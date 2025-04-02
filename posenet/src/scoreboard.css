@@ -27,7 +27,7 @@
 
 .scoreboard-title {
     margin-top: 20px;
-    font-size: 30px;
+    font-size: 50px;
     color: #198155;
     font-family: 'SairaStencilOne', sans-serif;
     -webkit-text-stroke: 1.25px #BE8989;
@@ -37,7 +37,7 @@
 .scoreboard-score {
     margin-top: 5px;
     margin-bottom: 20px;
-    font-size: 120px;
+    font-size: 140px;
     color: #198155;
     font-family: 'SairaStencilOne', sans-serif;
     -webkit-text-stroke: 1.25px #BE8989;
@@ -93,7 +93,7 @@
 .scoreboard-table td {
     padding: 10px;
     border-bottom: 1px solid #000000;
-    font-size: 30px;
+    font-size: 40px;
 }
 
 .scoreboard-table td.right {
@@ -107,6 +107,7 @@
     font-weight: bold;
     padding-left: 20px;
     color: #1A8256;
+    -webkit-text-stroke: 0.6px #A6ABC3;
     text-shadow: #877063 0px 3px 2px;
 }
 
@@ -115,7 +116,7 @@
     border-radius: 20px;
     margin-top: 30px;
     margin-bottom: 40px;
-    padding: 8px 18px;
+    padding: 8px 24px;
     color: #5c473c;
     font-size: 38px;
     font-family: 'SairaStencilOne', sans-serif;

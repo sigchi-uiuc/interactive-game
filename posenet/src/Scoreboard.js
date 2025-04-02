@@ -9,7 +9,7 @@ import './scoreboard.css';
 // const cleaverIconURL = "https://zh.wikipedia.org/wiki/%E5%BB%9A%E5%88%80#/media/File:Cucina_012.jpg"
 
 
-function Scoreboard({player, setPlayer, playerList, setPlayerList, overallScore, setOverallScore, overallAccuracy, setOverallAccuracy, overalltime, setOverallTime}) {
+function Scoreboard({player, playerList, setPlayerList, overallScore, overallAccuracy, overalltime}) {
   const navigate = useNavigate();
   const endGame = () => {
     setPlayerList((prev) => [...prev,[player,overallScore]]);
