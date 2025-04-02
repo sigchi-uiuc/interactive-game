@@ -8,15 +8,21 @@ import './scoreboard.css';
 
 // const cleaverIconURL = "https://zh.wikipedia.org/wiki/%E5%BB%9A%E5%88%80#/media/File:Cucina_012.jpg"
 
-function Scoreboard(player, setPlayer, playerList, setPlayerList) {
+
+function Scoreboard({player, setPlayer, playerList, setPlayerList, overallScore, setOverallScore, overallAccuracy, setOverallAccuracy, overalltime, setOverallTime}) {
   const navigate = useNavigate();
+  const endGame = () => {
+    setPlayerList((prev) => [...prev,[player,overallScore]]);
+    navigate("/leaderboard");
+
+  }
   return (
     <div className="scoreboard-page">
       <div className="scoreboard-header">
         <LeftKnife className="scoreboard-knife-left"></LeftKnife>
         <div className="scoreboard-title-container">
           <div className="scoreboard-title">Your score:</div>
-          <div className="scoreboard-score">1530</div>
+          <div className="scoreboard-score">{overallScore}</div>
         </div>
         <RightKnife className="scoreboard-knife-right"></RightKnife>
       </div>
@@ -28,17 +34,17 @@ function Scoreboard(player, setPlayer, playerList, setPlayerList) {
             <td class="right">4th</td>
           </tr>
           <tr>
-            <td class="left">Accuracy</td>
-            <td class="right">78%</td>
+            <td class="left">Fruits Hit</td>
+            <td class="right">{overallAccuracy}</td>
           </tr>
           <tr>
             <td class="left">Time Played</td>
-            <td class="right">5 min 12 sec</td>
+            <td class="right">{overalltime} seconds</td>
           </tr>
         </table>
       </div>
     
-      <button className="next-button" onClick={() => navigate("/leaderboard")}>
+      <button className="next-button" onClick={endGame}>
           Next
       </button>
     </div>

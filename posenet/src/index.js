@@ -15,19 +15,19 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 function Main() {
   // State needs to be inside a function, so we move it here
-  const [playerList, setPlayerList] = useState([
-    ["player1", "10"],
-    ["player2", "20"]
-  ]);
-  const [player, setPlayer] = useState([]);
+  const [playerList, setPlayerList] = useState([]);
+  const [player, setPlayer] = useState();
+  const [overallScore, setOverallScore] = useState(0);
+  const [overallAccuracy, setOverallAccuracy] = useState(0);
+  const [overalltime, setOverallTime] = useState(0);
   return (
     <React.StrictMode>
       <Router>
         <Routes>
           <Route path="/" element={<LandingPage player={player} setPlayer={setPlayer} />} />
           <Route path="/practice" element={<PracticePage/>} />
-          <Route path="/game" element={<App player={player} setPlayer={setPlayer}/>} />
-          <Route path="/scoreboard" element={<Scoreboard player={player} setPlayer={setPlayer} playerList={playerList} setPlayerList={setPlayerList}/>} />
+          <Route path="/game" element={<App player={player} setPlayer={setPlayer} overallScore={overallScore} setOverallScore={setOverallScore} overallAccuracy={overallAccuracy} setOverallAccuracy={setOverallAccuracy} overalltime={overalltime} setOverallTime={setOverallTime}/>} />
+          <Route path="/scoreboard" element={<Scoreboard  player={player} setPlayer={setPlayer} overallScore={overallScore} setOverallScore={setOverallScore} overallAccuracy={overallAccuracy} setOverallAccuracy={setOverallAccuracy} overalltime={overalltime} setOverallTime={setOverallTime}/> } />
           <Route path="/leaderboard" element={<Leaderboard />} />
         </Routes>
       </Router>

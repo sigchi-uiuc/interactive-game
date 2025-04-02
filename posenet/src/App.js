@@ -23,7 +23,7 @@ function Obj({ position, url ,rotation }) {
     <primitive object={gltf.scene} position={position} rotation={rotation} scale={[1, 1, 1]} />
   );
 }
-function App(player, setPlayer) {
+function App({player, setPlayer, overallScore, setOverallScore, overallAccuracy, setOverallAccuracy, overalltime, setOverallTime}) {
   const navigate = useNavigate();
   const webcamRef = useRef(null);
   const canvasRef = useRef(null);
@@ -59,15 +59,32 @@ function App(player, setPlayer) {
   //const lives = 3;
 
   const decreaseHealth = () => {
-    if (livesNum === 3) {
-      setLivesNum(2);;
-    } else if (livesNum === 2) {
-      setLivesNum(1);
-    } else {
-      setLivesNum(0);
-      navigate('/scoreboard');
-    }
-  }
+    setLivesNum((prevLives) => {
+      if (prevLives === 0) {
+        setTimeout(() => {
+          navigate("/scoreboard");
+        }, 200);
+        return 0;
+      } else {
+        return prevLives - 1;
+      }
+    });
+  };
+
+  const setScoreAndUpdateOverall = (newScore) => {
+    setScore(newScore);
+    setOverallScore(newScore);
+  };
+
+  const setAccuracyAndUpdateOverall = (newAccuracy) => {
+    setAccuracy(newAccuracy);
+    setOverallAccuracy(newAccuracy);
+  };
+
+  const setTimeAndUpdateOverall = (newTime) => {
+    setTimeSpentOnPage(newTime);
+    setOverallTime(newTime);
+  }; 
 
   function checkDot() {
     /*
@@ -86,15 +103,16 @@ function App(player, setPlayer) {
     disappear after 3-4 seconds - lose life if fruit disappears 
     */
     console.log("in generateFruit")
-    setFruitnum(fruitnum+1);
     const tempFruit = {
       fruitid: Math.random(),
       x : Math.floor(Math.random()*60)+10,
       y : Math.floor(Math.random()*60)+10,
       fruitpic: fruitImages[Math.floor(Math.random() * 3)]
     }
-    setFruits((prev) => [...prev, tempFruit]);
+    setFruits((prev) => [...prev, tempFruit])
     setTimeSpentOnPage(timeSpentOnPage+3)
+    setOverallTime(timeSpentOnPage)
+    setFruitnum(fruitnum+1);
     setTimeout(() => {
       setFruits((prevFruits) => {
         decreaseHealth();
@@ -114,8 +132,10 @@ function App(player, setPlayer) {
           Math.pow(dotPosition.x - fruit.x, 2) + Math.pow(dotPosition.y - fruit.y, 2)
         );
         if (distance < 10) {
-          console.log("cut")
-          setScore(score+100)
+          console.log("cut");
+          setScoreAndUpdateOverall(score + 100);
+          setAccuracyAndUpdateOverall((score / 100));
+
         }
         return distance > 10;
       });
@@ -189,12 +209,6 @@ function App(player, setPlayer) {
   }, []); 
   useEffect(() => {
     const dotCheckInterval = setInterval(() => {
-      if (livesNum == 0) {
-        player.concat({score});
-        setAccuracy(((score/100)/fruitnum));
-        player.concat(accuracy);
-        player.concat(timeSpentOnPage);
-      }
       removeFruit(fruits, dotPosition);
     }, 3); 
 
@@ -344,6 +358,7 @@ function App(player, setPlayer) {
         }}> {score}
         </div>
         </header>
+
       </div>
   );
 }
