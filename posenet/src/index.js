@@ -25,10 +25,10 @@ function Main() {
       <Router>
         <Routes>
           <Route path="/" element={<LandingPage player={player} setPlayer={setPlayer} />} />
-          <Route path="/practice" element={<PracticePage/>} />
+          <Route path="/practice" element={<PracticePage />} />
           <Route path="/game" element={<App player={player} setPlayer={setPlayer} overallScore={overallScore} setOverallScore={setOverallScore} overallAccuracy={overallAccuracy} setOverallAccuracy={setOverallAccuracy} overalltime={overalltime} setOverallTime={setOverallTime}/>} />
-          <Route path="/scoreboard" element={<Scoreboard  player={player} setPlayer={setPlayer} overallScore={overallScore} setOverallScore={setOverallScore} overallAccuracy={overallAccuracy} setOverallAccuracy={setOverallAccuracy} overalltime={overalltime} setOverallTime={setOverallTime}/> } />
-          <Route path="/leaderboard" element={<Leaderboard />} />
+          <Route path="/scoreboard" element={<Scoreboard  player={player} playerList={playerList} setPlayerList={setPlayerList} overallScore={overallScore} overallAccuracy={overallAccuracy} overalltime={overalltime} /> } />
+          <Route path="/leaderboard" element={<Leaderboard setPlayer={setPlayer} playerList={playerList} setOverallScore={setOverallScore} setOverallAccuracy={setOverallAccuracy} setOverallTime={setOverallTime}/>} />
         </Routes>
       </Router>
     </React.StrictMode>

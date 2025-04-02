@@ -6,38 +6,30 @@ import { ReactComponent as RightKnife } from "./svgs/right_knife.svg";
 
 import './leaderboard.css';
 
-
-
-function Leaderboard({player, setPlayer, playerList, setPlayerList}) {
+function Leaderboard({setPlayer, playerList, setOverallScore, setOverallAccuracy, setOverallTime}) {
   const navigate = useNavigate();
   const [sortedPlayerList, setSortedPlayerList] = useState([]);
-
-
-
-  // useEffect(() => {
-  //   setPlayerList([["newPlayer", "50"]]);
-  // }, [setPlayerList]);
-
-
 
   useEffect(() => {
     // sort the list of players and their scores in descending order (ranked by score)
     const sortedList = ([...playerList].sort((a, b) => Number(b[1]) - Number(a[1]))).slice(0, 5);
+
+    // add blank entries if the list has less than 5 recorded scores
+    while (sortedList.length < 5) {
+      sortedList.push(["---", "---"])
+    }
     setSortedPlayerList(sortedList);
+    
   }, [playerList] );
 
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   if (!playerName) return;
-
-  //   const newScores = [...scores, { name: playerName, score: latestScore }]
-  //     .sort((a, b) => b.score - a.score)
-  //     .slice(0, 5)
-
-  //   setScores(newScores);
-  //   localStorage.setItem("leaderboard", JSON.stringify(newScores));
-  //   setShowInput(false);
-  // };
+  const restart = () => {
+    // reset all of the variables and navigate to start
+    setPlayer(undefined);
+    setOverallScore(0);
+    setOverallAccuracy(0);
+    setOverallTime(0);
+    navigate("/");
+  }
 
   return (
     <div className="leaderboard-page">
@@ -61,27 +53,15 @@ function Leaderboard({player, setPlayer, playerList, setPlayerList}) {
           <tbody>
             {sortedPlayerList.map((entry, index) => (
               <tr key={index} className="board-row">
-                <td>{index + 1}</td>
+                <td>🔪{index + 1}</td>
                 <td>{entry[0]}</td>
                 <td>{entry[1]}</td>
               </tr>
             ))}
           </tbody>
         </table>
-
-        {/* {showInput && (
-          <form onSubmit={handleSubmit}>
-            <input
-              type="text"
-              value={playerName}
-              onChange={(event) => setPlayerName(event.target.value)}
-              placeholder="Enter your name"
-            />
-            <button type="submit">Submit</button>
-          </form>
-        )} */}
       </div>
-      <button className="play-again-button" onClick={() => navigate("/")}>
+      <button className="play-again-button" onClick={restart}>
          Play Again?
       </button>
     </div>

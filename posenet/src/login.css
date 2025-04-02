@@ -1,0 +1,49 @@
+@font-face {
+    font-family: 'SairaStencilOne';
+    src: url('./fonts/SairaStencilOne.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.login-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #16a34a;
+}
+
+.login-title {
+    font-weight: semi-bold;
+    color: white;
+    margin-bottom: 5px;
+    font-size: 115px;
+    font-family: 'SairaStencilOne', sans-serif;
+}
+
+.login-card {
+    background-color: #4ade80;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 60px;
+}
+
+.login-input {
+    background-color: white;
+    border-radius: 20px;
+    width: 20rem;
+    border: 1px solid #ccc;
+    padding: 0.5rem;
+    color: #918b8b;
+}
+
+.login-input:focus {
+    outline: 2px solid #918b8b;
+    border-color: #be9494;
+}
