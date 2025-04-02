@@ -58,6 +58,17 @@ function App(player, setPlayer) {
   //const fruits = [banana, grapes, strawberry]; // not const because fruits may be added as time goes on in the game (i.e better fruits w/ higher score)
   //const lives = 3;
 
+  const decreaseHealth = () => {
+    if (livesNum === 3) {
+      setLivesNum(2);;
+    } else if (livesNum === 2) {
+      setLivesNum(1);
+    } else {
+      setLivesNum(0);
+      navigate('/scoreboard');
+    }
+  }
+
   function checkDot() {
     /*
     for each fruit on canvas, 
@@ -86,7 +97,7 @@ function App(player, setPlayer) {
     setTimeSpentOnPage(timeSpentOnPage+3)
     setTimeout(() => {
       setFruits((prevFruits) => {
-        setLivesNum(livesNum-1);
+        decreaseHealth();
         return prevFruits.filter((fruit) => fruit.fruitid !== tempFruit.fruitid);
 
       });
@@ -104,12 +115,11 @@ function App(player, setPlayer) {
         );
         if (distance < 10) {
           console.log("cut")
+          setScore(score+100)
         }
         return distance > 10;
       });
       setFruits(updatedFruits); 
-      setScore(score+100)
-
     }
   }
 
@@ -249,18 +259,6 @@ function App(player, setPlayer) {
             />
           </div>
           ))}
-          {/* <div
-            style={{
-              position: "absolute",
-              width: "10px",
-              height: "10px",
-              backgroundColor: "red",
-              borderRadius: "50%",
-              left: `${dotPosition.x}%`,
-              top: `${dotPosition.y}%`,
-              transform: "translate(-50%, -50%)",
-            }}
-          ></div> */}
         </div>
         <Canvas
           style={{
@@ -290,62 +288,63 @@ function App(player, setPlayer) {
             url="/models/hand.glb"
           />
         </Canvas>
-      </header>
-      <div id="rectangle"
-        style={{
-          position: "relative",
-          top: "81px",
-          left: "896px",
-          width: "487px",
-          height: "142px",
-          backgroundColor: "#C29F8C",
-          border: "8px solid black",
-          borderRadius: "26px",
-          zIndex: 9,
-      }}>
-        <Skull style={{ 
+        <div id="rectangle"
+          style={{
+            position: "absolute",
+            top: "8vh",
+            left: "62vw",
+            width: "30vw",
+            height: "14vh",
+            backgroundColor: "#C29F8C",
+            border: "8px solid black",
+            borderRadius: "26px",
+            zIndex: 9,
+        }}>
+          <Skull style={{ 
+            position: "absolute",
+            top: "3%", 
+            left: "10%", 
+            width: "100px", 
+            opacity: livesNum >= 1 ? "1" : "0.3",
+            height: "105.26px" 
+          }} />
+          <Skull style={{
+            position: "absolute",
+            top: "3%", 
+            left: "40%", 
+            opacity: livesNum >= 2 ? "1" : "0.3",
+            width: "100px", 
+            height: "105.26px" 
+          }} />
+          <Skull style={{ 
+            position: "absolute",
+            top: "3%", 
+            left: "70%",
+            opacity: livesNum >= 3 ? "1" : "0.3",
+            width: "100px", 
+            height: "105.26px" 
+          }} />
+        </div>
+        <Cleaver style={{ 
+            position: "absolute",
+            top: "5%", 
+            left: "6%", 
+            width: "172", 
+            height: "193px" 
+          }} />
+        <div style={{ 
           position: "absolute",
-          top: "3%", 
-          left: "10%", 
-          width: "100px", 
-          height: "105.26px" 
-        }} />
-        <Skull style={{ 
-          position: "absolute",
-          top: "3%", 
-          left: "40%", 
-          opacity: "0.3",
-          width: "100px", 
-          height: "105.26px" 
-        }} />
-        <Skull style={{ 
-          position: "absolute",
-          top: "3%", 
-          left: "70%",
-          opacity: "0.3",
-          width: "100px", 
-          height: "105.26px" 
-        }} />
+          top: "6vh", 
+          left: "17vw",
+          fontSize: "120px",
+          fontWeight: "400",
+          color: "#2F6B48",
+          textShadow: "3px 3px 0px #A6786E",
+          fontFamily: "'Saira Stencil One', sans-serif",
+        }}> {score}
+        </div>
+        </header>
       </div>
-      <Cleaver style={{ 
-          position: "absolute",
-          top: "5vh", 
-          left: "6vw", 
-          width: "172", 
-          height: "193px" 
-        }} />
-      <div style={{ 
-        position: "absolute",
-        top: "6vh", 
-        left: "17vw",
-        fontSize: "120px",
-        fontWeight: "400",
-        color: "#2F6B48",
-        textShadow: "3px 3px 0px #A6786E",
-        fontFamily: "'Saira Stencil One', sans-serif",
-      }}> 000
-      </div>
-    </div>
   );
 }
 
