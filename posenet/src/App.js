@@ -45,7 +45,7 @@ function App({player, setPlayer, overallScore, setOverallScore, overallAccuracy,
   const fruitImages = [bananaPic,strawPic,grapesPic]
   const [timeSpentOnPage, setTimeSpentOnPage] = useState(0);
   const [score,setScore] = useState(0);
-  const [livesNum, setLivesNum] = useState(3);
+  const [livesNum, setLivesNum] = useState(5);
   const [fruitnum, setFruitnum] = useState(0);
   const [accuracy,setAccuracy] = useState(0);
 
@@ -60,7 +60,7 @@ function App({player, setPlayer, overallScore, setOverallScore, overallAccuracy,
 
   const decreaseHealth = () => {
     setLivesNum((prevLives) => {
-      if (prevLives === 0) {
+      if (prevLives <= 0) {
         setTimeout(() => {
           navigate("/scoreboard");
         }, 200);
@@ -326,7 +326,7 @@ function App({player, setPlayer, overallScore, setOverallScore, overallAccuracy,
             position: "absolute",
             top: "3%", 
             left: "40%", 
-            opacity: livesNum >= 2 ? "1" : "0.3",
+            opacity: livesNum >= 3 ? "1" : "0.3",
             width: "100px", 
             height: "105.26px" 
           }} />
@@ -334,7 +334,7 @@ function App({player, setPlayer, overallScore, setOverallScore, overallAccuracy,
             position: "absolute",
             top: "3%", 
             left: "70%",
-            opacity: livesNum >= 3 ? "1" : "0.3",
+            opacity: livesNum >= 5 ? "1" : "0.3",
             width: "100px", 
             height: "105.26px" 
           }} />
