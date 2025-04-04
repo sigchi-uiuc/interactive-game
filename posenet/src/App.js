@@ -60,7 +60,7 @@ function App({player, setPlayer, overallScore, setOverallScore, overallAccuracy,
 
   const decreaseHealth = () => {
     setLivesNum((prevLives) => {
-      if (prevLives <= -3) {
+      if (prevLives == 1) {
         setTimeout(() => {
           navigate("/scoreboard");
         }, 200);
@@ -94,54 +94,196 @@ function App({player, setPlayer, overallScore, setOverallScore, overallAccuracy,
     */
   }
 
+  // function generateFruit() {
+  //   //genFruit = fruits[Math.floor(Math.random() * 4)]; // choose fruit from (0, 3)
+  //   //genFruit.location = {x: Math.floor(Math.random() * 50) + 25, y: Math.floor(Math.random() * 50) + 25}; // choose location from (25, 75)
+  //   /*
+  //   render fruit on canvas
+  //   checkDot()
+  //   disappear after 3-4 seconds - lose life if fruit disappears 
+  //   */
+  //   console.log("in generateFruit")
+  //   const tempFruit = {
+  //     fruitid: Math.random(),
+  //     x : Math.floor(Math.random()*50)+5,
+  //     y : Math.floor(Math.random()*50)+5,
+  //     fruitpic: fruitImages[Math.floor(Math.random() * 3)]
+  //   }
+  //   setFruits((prev) => [...prev, tempFruit])
+  //   setTimeSpentOnPage(timeSpentOnPage+3)
+  //   setOverallTime(timeSpentOnPage)
+  //   setFruitnum(fruitnum+1);
+  //   setTimeout(() => {
+  //     setFruits((prevFruits) => {
+  //       decreaseHealth();
+  //       return prevFruits.filter((fruit) => fruit.fruitid !== tempFruit.fruitid);
+
+  //     });
+  //     console.log("removing self");
+  //   }, 5000);
+    
+  // }
+  // function generateFruit() {
+  //   console.log("in generateFruit");
+  //   // const tempFruit = {
+  //   //   fruitid: Math.random(),
+  //   //   x: Math.floor(Math.random() * 50) + 5,
+  //   //   y: Math.floor(Math.random() * 50) + 5,
+  //   //   fruitpic: fruitImages[Math.floor(Math.random() * 3)],
+  //   //   timeout: false,  // fruit has not timed out yet
+  //   // };
+  //   const tempFruit = {
+  //     fruitid: Math.random(),
+  //     x: Math.floor(Math.random() * 50) + 5,
+  //     y: Math.floor(Math.random() * 50) + 5,
+  //     fruitpic: fruitImages[Math.floor(Math.random() * 3)],
+  //     timeout: false,  // fruit has not timed out yet
+  //     healthDeducted: false,  // No health deducted yet
+  //   };    
+  //   setFruits((prev) => [...prev, tempFruit]);
+  //   setTimeSpentOnPage(timeSpentOnPage + 3);
+  //   setOverallTime(timeSpentOnPage);
+  //   setFruitnum(fruitnum + 1);
+  
+  //   setTimeout(() => {
+  //     setFruits((prevFruits) => {
+  //       const updatedFruits = prevFruits.map((fruit) =>
+  //         fruit.fruitid === tempFruit.fruitid
+  //           ? { ...fruit, timeout: true }  // Mark the fruit as missed (timed out)
+  //           : fruit
+  //       );
+  //       setFruits(updatedFruits);
+  //       console.log("Fruit timed out:", tempFruit.fruitid);
+  //       decreaseHealth();  // Decrease health for missed fruit (only after timeout)
+  //       console.log("removing self due to timeout");
+  //       return updatedFruits.filter((fruit) => fruit.fruitid !== tempFruit.fruitid);
+  //     });
+  //   }, 10000);  // Timeout set to 10 seconds
+  // }
+  // correct scoring
+  // function generateFr
+  // fruit disappear
   function generateFruit() {
-    //genFruit = fruits[Math.floor(Math.random() * 4)]; // choose fruit from (0, 3)
-    //genFruit.location = {x: Math.floor(Math.random() * 50) + 25, y: Math.floor(Math.random() * 50) + 25}; // choose location from (25, 75)
-    /*
-    render fruit on canvas
-    checkDot()
-    disappear after 3-4 seconds - lose life if fruit disappears 
-    */
-    console.log("in generateFruit")
+    console.log("in generateFruit");
     const tempFruit = {
       fruitid: Math.random(),
-      x : Math.floor(Math.random()*50)+5,
-      y : Math.floor(Math.random()*50)+5,
-      fruitpic: fruitImages[Math.floor(Math.random() * 3)]
-    }
-    setFruits((prev) => [...prev, tempFruit])
-    setTimeSpentOnPage(timeSpentOnPage+3)
-    setOverallTime(timeSpentOnPage)
-    setFruitnum(fruitnum+1);
+      x: Math.floor(Math.random() * 50) + 5,
+      y: Math.floor(Math.random() * 50) + 5,
+      fruitpic: fruitImages[Math.floor(Math.random() * 3)],
+      timeout: false,  // fruit has not timed out yet
+      healthDeducted: false,  // flag to check if health has been deducted
+    };
+    setFruits((prev) => [...prev, tempFruit]);
+    setTimeSpentOnPage(timeSpentOnPage + 3);
+    setOverallTime(timeSpentOnPage);
+    setFruitnum(fruitnum + 1);
+  
     setTimeout(() => {
+      // Mark fruit as timed out and trigger health deduction if needed
       setFruits((prevFruits) => {
-        decreaseHealth();
-        return prevFruits.filter((fruit) => fruit.fruitid !== tempFruit.fruitid);
-
+        const updatedFruits = prevFruits.map((fruit) =>
+          fruit.fruitid === tempFruit.fruitid
+            ? { ...fruit, timeout: true }  // Mark the fruit as timed out
+            : fruit
+        );
+        return updatedFruits;
       });
-      console.log("removing self");
-    }, 5000);
-    
+    }, 1500);  // Timeout set to 3 seconds for fruit to disappear
   }
+  
+  
+  
+  
 
-  function removeFruit(fruits,dotPosition) {
-    if (fruits.length != 0) {
-      console.log("in array")
-      const updatedFruits = fruits.filter(fruit => {
+  // function removeFruit(fruits,dotPosition) {
+  //   if (fruits.length != 0) {
+  //     console.log("in array")
+  //     const updatedFruits = fruits.filter(fruit => {
+  //       const distance = Math.sqrt(
+  //         Math.pow(dotPosition.x - fruit.x, 2) + Math.pow(dotPosition.y - fruit.y, 2)
+  //       );
+  //       if (distance < 15) {
+  //         console.log("cut");
+  //         setScoreAndUpdateOverall(score + 100);
+  //         setAccuracyAndUpdateOverall((score / 100));
+
+  //       }
+  //       return distance > 15;
+  //     });
+  //     setFruits(updatedFruits); 
+  //   }
+  // }
+  // correct scoring
+  // function removeFruit(fruits, dotPosition) {
+  //   if (fruits.length !== 0) {
+  //     const updatedFruits = fruits.filter((fruit) => {
+  //       const distance = Math.sqrt(
+  //         Math.pow(dotPosition.x - fruit.x, 2) + Math.pow(dotPosition.y - fruit.y, 2)
+  //       );
+        
+  //       if (distance < 13 && !fruit.timeout) {  // Only slice if fruit is not already timed out
+  //         console.log("cut");
+  //         setScoreAndUpdateOverall(score + 100);  // Increase score when fruit is sliced
+  //         setAccuracyAndUpdateOverall((score / 100));  // Update accuracy
+  //         return false;  // Remove the fruit from the list after it's sliced
+  //       }
+  //       return true;  // Keep the fruit if it's not sliced
+  //     });
+  
+  //     // Timeout and health deduction logic:
+  //     fruits.forEach((fruit) => {
+  //       if (fruit.timeout && !fruit.healthDeducted) {
+  //         // If fruit timed out and health hasn't been deducted yet
+  //         console.log("Decreasing health because fruit missed");
+  //         decreaseHealth();  // Decrease health for any fruit that was missed
+  //         // Mark the fruit as having caused health deduction
+  //         fruit.healthDeducted = true;
+  //       }
+  //     });
+  
+  //     setFruits(updatedFruits);  // Update the fruits state after slicing or timeout
+  //   }
+  // }  
+  // fruit disappear
+  function removeFruit(fruits, dotPosition) {
+    if (fruits.length !== 0) {
+      const updatedFruits = fruits.filter((fruit) => {
         const distance = Math.sqrt(
           Math.pow(dotPosition.x - fruit.x, 2) + Math.pow(dotPosition.y - fruit.y, 2)
         );
-        if (distance < 15) {
+        
+        // If the fruit is sliced and not timed out
+        if (distance < 15 && !fruit.timeout) {  // Only slice if fruit is not already timed out
           console.log("cut");
-          setScoreAndUpdateOverall(score + 100);
-          setAccuracyAndUpdateOverall((score / 100));
-
+          setScoreAndUpdateOverall(score + 100);  // Increase score when fruit is sliced
+          setAccuracyAndUpdateOverall((score / 100));  // Update accuracy
+          return false;  // Remove the fruit from the list after it's sliced
         }
-        return distance > 15;
+        // If fruit is timed out, remove it from the list
+        if (fruit.timeout) {
+          return false;  // Remove the fruit if it has timed out
+        }
+  
+        return true;  // Keep the fruit if it's not sliced and not timed out
       });
-      setFruits(updatedFruits); 
+    
+      // Timeout and health deduction logic:
+      fruits.forEach((fruit) => {
+        if (fruit.timeout && !fruit.healthDeducted) {
+          // If fruit timed out and health hasn't been deducted yet
+          console.log("Decreasing health because fruit missed");
+          decreaseHealth();  // Decrease health for any fruit that was missed
+          // Mark the fruit as having caused health deduction
+          fruit.healthDeducted = true;
+        }
+      });
+    
+      setFruits(updatedFruits);  // Update the fruits state after slicing or timeout
     }
   }
+  
+  
+
 
 // Note: wherever dot is rendering, we can also render the fruit
   
@@ -210,7 +352,7 @@ function App({player, setPlayer, overallScore, setOverallScore, overallAccuracy,
   useEffect(() => {
     const dotCheckInterval = setInterval(() => {
       removeFruit(fruits, dotPosition);
-    }, 3); 
+    }, 300); 
 
     return () => {
       clearInterval(dotCheckInterval); 
