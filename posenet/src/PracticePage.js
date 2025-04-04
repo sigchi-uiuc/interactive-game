@@ -95,11 +95,10 @@ function PracticePage() {
   const ImagesC =
   <div className="image-container">
     <div className= "image tenth4-h tenth2-w">
-      <h2>*Insert Scoring System*</h2>
+      <h2>*Scoring System*</h2>
       <ul>
-        <li>Blank</li>
-        <li>Blank</li>
-        <li>Blank</li>
+        <li>Hit Fruits for points</li>
+        <li>Missed fruits get no points!</li>
       </ul>
      </div>
     <div id="skully" className= "image main-box tenth5-h tenth5-w">
@@ -119,10 +118,10 @@ function PracticePage() {
   const ImagesD =
     <div className="image-container">
       <div className= "main-box image tenth4-h tenth2-w">
-        <p>Vegetables immediately end the game.</p>
+        <p> (To be implemented!) Vegetables immediately end the game.</p>
       </div>
       <div className= "main-box image tenth6-h tenth5-w">
-        <p>Slicing fruit combos award extra points!</p>
+        <p>To be implemented!) Slicing fruit combos award extra points!</p>
       </div>
       <Radish className= "image medium tenth3-h tenth275-w"></Radish>
       <TomatoCarrot className= "image medium tenth3-h tenth3-w"></TomatoCarrot>

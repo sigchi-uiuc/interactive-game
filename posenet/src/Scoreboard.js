@@ -26,7 +26,7 @@ function Scoreboard({player, playerList, setPlayerList, overallScore, overallAcc
         </div>
         <RightKnife className="scoreboard-knife-right"></RightKnife>
       </div>
-
+{/* 
       <div className="scoreboard-container">
         <table class="scoreboard-table">
           <tr>
@@ -42,7 +42,7 @@ function Scoreboard({player, playerList, setPlayerList, overallScore, overallAcc
             <td class="right">{overalltime} seconds</td>
           </tr>
         </table>
-      </div>
+      </div> */}
     
       <button className="next-button" onClick={endGame}>
           Next
