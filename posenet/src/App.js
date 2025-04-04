@@ -39,6 +39,7 @@ function App({player, setPlayer, overallScore, setOverallScore, overallAccuracy,
     this.probability = probability;
     this.pic = null;
     this.location = {x: null, y: null} ; // pair for location
+    this.iscut = false;
   }
 
   const [fruits, setFruits] = useState([]);
@@ -60,7 +61,7 @@ function App({player, setPlayer, overallScore, setOverallScore, overallAccuracy,
 
   const decreaseHealth = () => {
     setLivesNum((prevLives) => {
-      if (prevLives <= -3) {
+      if (prevLives <= 0) {
         setTimeout(() => {
           navigate("/scoreboard");
         }, 200);
@@ -107,7 +108,8 @@ function App({player, setPlayer, overallScore, setOverallScore, overallAccuracy,
       fruitid: Math.random(),
       x : Math.floor(Math.random()*50)+5,
       y : Math.floor(Math.random()*50)+5,
-      fruitpic: fruitImages[Math.floor(Math.random() * 3)]
+      fruitpic: fruitImages[Math.floor(Math.random() * 3)],
+      iscut: false
     }
     setFruits((prev) => [...prev, tempFruit])
     setTimeSpentOnPage(timeSpentOnPage+3)
@@ -115,7 +117,9 @@ function App({player, setPlayer, overallScore, setOverallScore, overallAccuracy,
     setFruitnum(fruitnum+1);
     setTimeout(() => {
       setFruits((prevFruits) => {
-        decreaseHealth();
+        if (!tempFruit.iscut) {
+          decreaseHealth();
+        }
         return prevFruits.filter((fruit) => fruit.fruitid !== tempFruit.fruitid);
 
       });
@@ -135,7 +139,7 @@ function App({player, setPlayer, overallScore, setOverallScore, overallAccuracy,
           console.log("cut");
           setScoreAndUpdateOverall(score + 100);
           setAccuracyAndUpdateOverall((score / 100));
-
+          fruit.iscut = true;
         }
         return distance > 15;
       });
