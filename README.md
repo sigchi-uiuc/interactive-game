@@ -1,4 +1,4 @@
-# interactive-game
+# interactive-game 
 Making a motion sensing slicing games 
 
 ## How to Clone 
